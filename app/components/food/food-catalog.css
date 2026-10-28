@@ -47,7 +47,11 @@
   background: #fff;
   font-size: 12px;
   font-weight: 800;
-  transition: border 180ms ease, background 180ms ease, color 180ms ease, transform 180ms ease;
+  transition:
+    border 180ms ease,
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
 }
 
 .chip:hover {
@@ -80,15 +84,27 @@
   border-radius: 18px;
   background: #fff;
   box-shadow: 0 6px 17px rgba(26, 65, 43, 0.06);
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
   animation: food-card-in 420ms ease both;
 }
 
-.food-card:nth-child(2) { animation-delay: 45ms; }
-.food-card:nth-child(3) { animation-delay: 90ms; }
-.food-card:nth-child(4) { animation-delay: 135ms; }
-.food-card:nth-child(5) { animation-delay: 180ms; }
-.food-card:nth-child(6) { animation-delay: 225ms; }
+.food-card:nth-child(2) {
+  animation-delay: 45ms;
+}
+.food-card:nth-child(3) {
+  animation-delay: 90ms;
+}
+.food-card:nth-child(4) {
+  animation-delay: 135ms;
+}
+.food-card:nth-child(5) {
+  animation-delay: 180ms;
+}
+.food-card:nth-child(6) {
+  animation-delay: 225ms;
+}
 
 .food-card:hover {
   box-shadow: 0 14px 26px rgba(26, 65, 43, 0.12);
@@ -98,9 +114,14 @@
 .food-art {
   position: relative;
   display: grid;
-  min-height: 164px;
+  min-height: 180px;
   place-items: center;
   overflow: hidden;
+}
+
+.food-item-photo {
+  padding: 0.5px;
+  object-fit: contain;
 }
 
 .food-art::after {
@@ -172,7 +193,9 @@
   border-radius: 50%;
   color: #708279;
   background: rgba(255, 255, 255, 0.86);
-  transition: color 180ms ease, transform 180ms ease;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
 }
 
 .favorite-button:hover,
@@ -181,26 +204,66 @@
   transform: scale(1.08);
 }
 
-.food-art-peach { background: linear-gradient(135deg, #f6dfcc, #efc0a6); }
-.food-art-honey { background: linear-gradient(135deg, #f8e6b7, #efbd63); }
-.food-art-tomato { background: linear-gradient(135deg, #f6cfb9, #e88b69); }
-.food-art-sage { background: linear-gradient(135deg, #d9e8d8, #9bc39b); }
-.food-art-sand { background: linear-gradient(135deg, #f1e2c8, #d7b37e); }
-.food-art-apricot { background: linear-gradient(135deg, #f8dfb2, #efa66a); }
-.food-art-gold { background: linear-gradient(135deg, #f2e1a9, #dfb74b); }
-.food-art-cream { background: linear-gradient(135deg, #f4ebd7, #dfc995); }
-.food-art-lemon { background: linear-gradient(135deg, #f7e9a6, #eccd48); }
-.food-art-lavender { background: linear-gradient(135deg, #e8dff0, #b9a3d6); }
-.food-art-rose { background: linear-gradient(135deg, #f4d5cf, #d7877d); }
-.food-art-red { background: linear-gradient(135deg, #f1c1b9, #d85f52); }
-.food-art-green { background: linear-gradient(135deg, #d5e5cb, #88b473); }
-.food-art-coral { background: linear-gradient(135deg, #f2d4c1, #db9870); }
-.food-art-blue { background: linear-gradient(135deg, #d6e5ee, #8eb9d0); }
-.food-art-orange { background: linear-gradient(135deg, #f6d0af, #df8d47); }
-.food-art-earth { background: linear-gradient(135deg, #e6d4be, #b78d66); }
-.food-art-pink { background: linear-gradient(135deg, #f3d7dd, #dd96ae); }
-.food-art-sunset { background: linear-gradient(135deg, #f5d0b2, #db785d); }
-.food-art-yellow { background: linear-gradient(135deg, #f7e7af, #eabf47); }
+.food-art-peach {
+  background: linear-gradient(135deg, #f6dfcc, #efc0a6);
+}
+.food-art-honey {
+  background: linear-gradient(135deg, #f8e6b7, #efbd63);
+}
+.food-art-tomato {
+  background: linear-gradient(135deg, #f6cfb9, #e88b69);
+}
+.food-art-sage {
+  background: linear-gradient(135deg, #d9e8d8, #9bc39b);
+}
+.food-art-sand {
+  background: linear-gradient(135deg, #f1e2c8, #d7b37e);
+}
+.food-art-apricot {
+  background: linear-gradient(135deg, #f8dfb2, #efa66a);
+}
+.food-art-gold {
+  background: linear-gradient(135deg, #f2e1a9, #dfb74b);
+}
+.food-art-cream {
+  background: linear-gradient(135deg, #f4ebd7, #dfc995);
+}
+.food-art-lemon {
+  background: linear-gradient(135deg, #f7e9a6, #eccd48);
+}
+.food-art-lavender {
+  background: linear-gradient(135deg, #e8dff0, #b9a3d6);
+}
+.food-art-rose {
+  background: linear-gradient(135deg, #f4d5cf, #d7877d);
+}
+.food-art-red {
+  background: linear-gradient(135deg, #f1c1b9, #d85f52);
+}
+.food-art-green {
+  background: linear-gradient(135deg, #d5e5cb, #88b473);
+}
+.food-art-coral {
+  background: linear-gradient(135deg, #f2d4c1, #db9870);
+}
+.food-art-blue {
+  background: linear-gradient(135deg, #d6e5ee, #8eb9d0);
+}
+.food-art-orange {
+  background: linear-gradient(135deg, #f6d0af, #df8d47);
+}
+.food-art-earth {
+  background: linear-gradient(135deg, #e6d4be, #b78d66);
+}
+.food-art-pink {
+  background: linear-gradient(135deg, #f3d7dd, #dd96ae);
+}
+.food-art-sunset {
+  background: linear-gradient(135deg, #f5d0b2, #db785d);
+}
+.food-art-yellow {
+  background: linear-gradient(135deg, #f7e7af, #eabf47);
+}
 
 .food-card-content {
   padding: 12px 13px 14px;
@@ -282,7 +345,9 @@
   color: #fff;
   background: var(--green);
   box-shadow: 0 7px 12px rgba(15, 90, 59, 0.17);
-  transition: background 180ms ease, transform 180ms ease;
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
 }
 
 .add-button:hover {
@@ -325,21 +390,19 @@
 }
 
 @media (max-width: 1050px) {
-
   .food-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 800px) {
-
   .food-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
 
   .food-art {
-    min-height: 135px;
+    min-height: 145px;
   }
 
   .food-emoji {

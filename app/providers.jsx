@@ -33,7 +33,15 @@ export function FoodieProvider({ children }) {
 
         if (savedUser) setUser(JSON.parse(savedUser));
         if (savedFavorites) setFavoriteIds(JSON.parse(savedFavorites));
-        if (savedCart) setCartItems(JSON.parse(savedCart));
+        if (savedCart) {
+          const parsedCart = JSON.parse(savedCart);
+          if (Array.isArray(parsedCart)) {
+            setCartItems(parsedCart.map((cartItem) => {
+              const foodItem = foodItems.find((item) => item.id === cartItem.id);
+              return foodItem ? { ...cartItem, image: foodItem.image || cartItem.image || "" } : cartItem;
+            }));
+          }
+        }
         if (savedOrders) setOrders(JSON.parse(savedOrders));
         if (savedDeliverySettings) {
           const parsedSettings = JSON.parse(savedDeliverySettings);

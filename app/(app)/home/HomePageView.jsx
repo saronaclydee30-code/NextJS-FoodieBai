@@ -4,6 +4,7 @@ import FoodMenuGrid from "../../components/food/FoodMenuGrid";
 import AppIcon from "../../components/shared/AppIcon";
 import FoodSearchField from "../../components/food/FoodSearchField";
 import PageSectionHeading from "../../components/food/PageSectionHeading";
+import FoodItemImage from "../../components/food/FoodItemImage";
 
 export default function HomePageView({
   search,
@@ -49,7 +50,7 @@ export default function HomePageView({
         {featuredItem && (
           <article className="home-pick-card">
             <div className={`home-pick-art food-art-${featuredItem.tone}`} aria-hidden="true">
-              <span>{featuredItem.emoji}</span>
+              <FoodItemImage item={featuredItem} fallbackClassName="food-emoji" sizes="82px" />
             </div>
             <div className="home-pick-copy">
               <span className="home-pick-eyebrow"><AppIcon name="sparkles" size={14} /> A GOOD PLACE TO START</span>

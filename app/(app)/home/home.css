@@ -229,6 +229,7 @@
 }
 
 .home-pick-art {
+  position: relative;
   display: grid;
   width: 82px;
   height: 82px;
@@ -237,7 +238,7 @@
   border-radius: 15px;
 }
 
-.home-pick-art span {
+.home-pick-art .food-emoji {
   font-size: 45px;
   filter: drop-shadow(0 7px 5px rgba(70, 49, 21, 0.15));
   animation: promo-food-float 4s ease-in-out infinite;
@@ -353,7 +354,7 @@
     height: 66px;
   }
 
-  .home-pick-art span {
+  .home-pick-art .food-emoji {
     font-size: 37px;
   }
 
@@ -386,7 +387,7 @@
     height: 60px;
   }
 
-  .home-pick-art span {
+  .home-pick-art .food-emoji {
     font-size: 32px;
   }
 
@@ -421,7 +422,7 @@
 .promo-card::after,
 .promo-food,
 .promo-spark,
-.home-pick-art span {
+  .home-pick-art .food-emoji {
     animation: none;
   }
 }

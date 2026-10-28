@@ -20,6 +20,15 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Food item images
+
+Each item exported from `app/lib/food-data.js` has an `image` field, empty by default. Set it on the corresponding object in `baseFoodItems` (or on the returned object in `generatedFoodItems`) to either:
+
+- A path under `public`, such as `"/food-images/chickenjoy.webp"` for `public/food-images/chickenjoy.webp`.
+- An absolute `https://` image URL.
+
+The image is used in the menu, home-page featured dish, and cart. If the field is empty or the image cannot load, the existing emoji artwork is shown instead. Remote URLs are loaded directly without Next.js image optimization; local public paths use Next.js image optimization.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

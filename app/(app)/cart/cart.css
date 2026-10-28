@@ -35,6 +35,7 @@
 }
 
 .cart-art {
+  position: relative;
   display: grid;
   width: 82px;
   height: 78px;
@@ -42,6 +43,12 @@
   overflow: hidden;
   border-radius: 13px;
   font-size: 40px;
+}
+
+.cart-art .food-emoji {
+  font-size: inherit;
+  filter: none;
+  transform: none;
 }
 
 .cart-item-copy {

@@ -1,5 +1,6 @@
 import AppIcon from "../../components/shared/AppIcon";
 import FoodMenuGrid from "../../components/food/FoodMenuGrid";
+import FoodItemImage from "../../components/food/FoodItemImage";
 import Link from "next/link";
 
 export default function CartPageView({ cartItems, deliverySettings, suggestions, favoriteIds, onChangeQuantity, onPlaceOrder, onOpenMenu, onAddToCart, onToggleFavorite }) {
@@ -38,7 +39,9 @@ export default function CartPageView({ cartItems, deliverySettings, suggestions,
             <div className="cart-list">
               {cartItems.map((item) => (
                 <article className="cart-item" key={item.id}>
-                  <div className={`cart-art food-art-${item.tone}`} aria-hidden="true">{item.emoji}</div>
+                  <div className={`cart-art food-art-${item.tone}`} aria-hidden="true">
+                    <FoodItemImage item={item} fallbackClassName="food-emoji" sizes="82px" />
+                  </div>
                   <div className="cart-item-copy">
                     <span>{item.restaurant}</span>
                     <h3>{item.title}</h3>

@@ -1,11 +1,12 @@
 import AppIcon from "../shared/AppIcon";
+import FoodItemImage from "./FoodItemImage";
 
 export default function FoodMenuCard({ item, isFavorite, onToggleFavorite, onAddToCart }) {
   return (
     <article className="food-card">
       <div className={`food-art food-art-${item.tone}`}>
         <span className="food-art-glow" />
-        <span className="food-emoji" aria-hidden="true">{item.emoji}</span>
+        <FoodItemImage item={item} fallbackClassName="food-emoji" sizes="(max-width: 800px) 50vw, 25vw" />
         <span className="food-art-dot dot-one" />
         <span className="food-art-dot dot-two" />
         <span className="rating-badge"><AppIcon name="star" size={12} /> {item.rating}</span>
@@ -36,4 +37,3 @@ export default function FoodMenuCard({ item, isFavorite, onToggleFavorite, onAdd
     </article>
   );
 }
-
