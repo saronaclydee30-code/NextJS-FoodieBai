@@ -135,6 +135,55 @@
   color: var(--ink);
 }
 
+.summary-delivery {
+  display: grid;
+  gap: 7px;
+  margin-top: 17px;
+  padding: 12px;
+  border: 1px solid rgba(15, 90, 59, 0.09);
+  border-radius: 12px;
+  background: #f8fbf8;
+}
+
+.summary-delivery > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.summary-delivery > span .icon {
+  color: var(--green);
+}
+
+.summary-delivery > strong {
+  overflow-wrap: anywhere;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.summary-delivery a {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.summary-delivery a:hover {
+  color: var(--green-dark);
+}
+
+.summary-delivery > small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
 .summary-divider {
   height: 1px;
   margin: 17px 0 15px;

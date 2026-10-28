@@ -1,7 +1,7 @@
 import AppIcon from "../../components/shared/AppIcon";
 import Link from "next/link";
 
-export default function ProfilePageView({ user, orders, favoriteCount, onLogout }) {
+export default function ProfilePageView({ user, orders, favoriteCount, deliveryAddress, onLogout }) {
   const initials = (user?.username || "F").slice(0, 1).toUpperCase();
 
   return (
@@ -25,7 +25,7 @@ export default function ProfilePageView({ user, orders, favoriteCount, onLogout 
           </div>
         </div>
         <div className="profile-details-card">
-          <div className="detail-row"><span><AppIcon name="pin" size={17} /> Delivery Address</span><strong>123 Foodie Street, Metro Manila</strong></div>
+          <div className="detail-row"><span><AppIcon name="pin" size={17} /> Delivery Address</span><strong>{deliveryAddress}</strong></div>
           <div className="detail-row"><span><AppIcon name="user" size={17} /> Phone Number</span><strong>+63 917 123 4567</strong></div>
           <div className="detail-row"><span><AppIcon name="cart" size={17} /> Payment Method</span><strong>Cash on Delivery / E-Wallet</strong></div>
         </div>

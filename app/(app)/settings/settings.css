@@ -1,0 +1,248 @@
+/* Delivery preferences page. */
+
+.settings-form {
+  display: grid;
+  gap: 16px;
+}
+
+.settings-card {
+  display: grid;
+  gap: 22px;
+  padding: 23px;
+  border: 1px solid rgba(15, 90, 59, 0.08);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 7px 20px rgba(26, 65, 43, 0.05);
+}
+
+.settings-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid var(--line);
+}
+
+.settings-card-icon,
+.settings-toggle-icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  color: var(--green);
+  background: var(--green-soft);
+}
+
+.settings-card-icon {
+  width: 43px;
+  height: 43px;
+  border-radius: 14px;
+}
+
+.settings-card-heading h2 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.settings-card-heading p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.settings-field {
+  display: grid;
+  gap: 8px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.settings-field > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.settings-field > span small,
+.settings-field-hint {
+  color: var(--soft-muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.settings-field input,
+.settings-field textarea {
+  width: 100%;
+  min-height: 47px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: var(--ink);
+  background: #fbfdfb;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.settings-field textarea {
+  min-height: 86px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.settings-field input:focus,
+.settings-field textarea:focus {
+  border-color: #8dbb98;
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(15, 90, 59, 0.1);
+}
+
+.settings-field-hint {
+  justify-self: end;
+}
+
+.settings-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fbfdfb;
+  cursor: pointer;
+}
+
+.settings-toggle-icon {
+  width: 37px;
+  height: 37px;
+  border-radius: 12px;
+}
+
+.settings-toggle-copy {
+  display: grid;
+  flex: 1;
+  gap: 4px;
+}
+
+.settings-toggle-copy strong {
+  font-size: 12px;
+}
+
+.settings-toggle-copy small {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.settings-toggle input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.settings-switch {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: #cbd6ce;
+  transition: background 180ms ease;
+}
+
+.settings-switch::after {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  content: "";
+  transition: transform 180ms ease;
+}
+
+.settings-toggle input:checked + .settings-switch {
+  background: var(--green);
+}
+
+.settings-toggle input:checked + .settings-switch::after {
+  transform: translateX(18px);
+}
+
+.settings-toggle input:focus-visible + .settings-switch {
+  outline: 3px solid rgba(15, 90, 59, 0.22);
+  outline-offset: 3px;
+}
+
+.settings-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.settings-footer p {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  color: var(--soft-muted);
+  font-size: 11px;
+}
+
+.settings-footer .primary-button {
+  min-height: 46px;
+  border-radius: 13px;
+  font-size: 13px;
+}
+
+.settings-link {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 7px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--muted);
+  background: #fff;
+  font-size: 11px;
+  font-weight: 900;
+  text-decoration: none;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.settings-link:hover,
+.settings-link-active {
+  border-color: rgba(15, 90, 59, 0.2);
+  color: var(--green-dark);
+  background: var(--green-pale);
+}
+
+@media (max-width: 520px) {
+  .settings-card {
+    gap: 18px;
+    padding: 17px;
+  }
+
+  .settings-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .settings-footer .primary-button {
+    width: 100%;
+  }
+
+  .settings-link {
+    min-width: 38px;
+    justify-content: center;
+    padding: 0 9px;
+    font-size: 0;
+  }
+}

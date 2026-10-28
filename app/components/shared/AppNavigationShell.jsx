@@ -31,6 +31,15 @@ export default function AppNavigationShell({ children }) {
           <FoodieBaiBrand compact />
           <div className="app-topbar-right">
             <span className="delivery-status"><span className="online-dot" /> Delivering to Metro Manila</span>
+            <Link
+              className={`settings-link ${isActiveRoute(pathname, "settings") ? "settings-link-active" : ""}`}
+              href="/settings"
+              aria-label="Open settings"
+              aria-current={isActiveRoute(pathname, "settings") ? "page" : undefined}
+            >
+              <AppIcon name="settings" size={19} />
+              <span>Settings</span>
+            </Link>
             <Link className="top-avatar" href="/profile" aria-label="Open profile">{activeUser.slice(0, 1).toUpperCase()}</Link>
           </div>
         </header>
@@ -58,4 +67,3 @@ export default function AppNavigationShell({ children }) {
     </main>
   );
 }
-

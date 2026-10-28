@@ -1,7 +1,8 @@
 import AppIcon from "../../components/shared/AppIcon";
 import FoodMenuGrid from "../../components/food/FoodMenuGrid";
+import Link from "next/link";
 
-export default function CartPageView({ cartItems, suggestions, favoriteIds, onChangeQuantity, onPlaceOrder, onOpenMenu, onAddToCart, onToggleFavorite }) {
+export default function CartPageView({ cartItems, deliverySettings, suggestions, favoriteIds, onChangeQuantity, onPlaceOrder, onOpenMenu, onAddToCart, onToggleFavorite }) {
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const total = subtotal ? subtotal + 49 : 0;
 
@@ -56,6 +57,12 @@ export default function CartPageView({ cartItems, suggestions, favoriteIds, onCh
               <div className="summary-title"><span>Order summary</span><AppIcon name="sparkles" size={18} /></div>
               <div className="summary-row"><span>Subtotal</span><strong>₱{subtotal}</strong></div>
               <div className="summary-row"><span>Delivery Fee</span><strong>₱49</strong></div>
+              <div className="summary-delivery">
+                <span><AppIcon name="pin" size={15} /> Deliver to</span>
+                <strong>{deliverySettings.deliveryAddress}</strong>
+                <Link href="/settings">Edit delivery settings <AppIcon name="chevronRight" size={14} /></Link>
+                {deliverySettings.contactlessDelivery && <small>Contactless delivery requested</small>}
+              </div>
               <div className="summary-divider" />
               <div className="summary-row summary-total"><span>Total</span><strong>₱{total}</strong></div>
               <button className="primary-button checkout-button" type="button" onClick={onPlaceOrder}>Place Order <AppIcon name="arrowRight" size={18} /></button>

@@ -56,6 +56,11 @@ export default function OrdersPageView({ orders, onOpenMenu }) {
               </div>
               <div className="order-time"><AppIcon name="clock" size={15} /> {order.orderTime}</div>
               <p className="order-items">{order.items.map((item) => `${item.quantity}x ${item.title}`).join(", ")}</p>
+              <div className="order-delivery-details">
+                <span><AppIcon name="pin" size={15} /> {order.deliveryAddress || "123 Foodie Street, Metro Manila"}</span>
+                {order.contactlessDelivery && <span><AppIcon name="check" size={15} /> Contactless delivery</span>}
+                {order.deliveryInstructions && <span className="order-delivery-instructions">Rider note: {order.deliveryInstructions}</span>}
+              </div>
               <div className="order-bottomline"><span>Total Paid</span><strong>₱{order.totalPrice}</strong></div>
             </article>
           ))}

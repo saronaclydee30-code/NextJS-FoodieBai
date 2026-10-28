@@ -6,11 +6,18 @@ import { defaultFavorites, foodItems } from "./lib/food-data";
 
 const FoodieContext = createContext(null);
 
+const defaultDeliverySettings = {
+  deliveryAddress: "123 Foodie Street, Metro Manila",
+  deliveryInstructions: "",
+  contactlessDelivery: false,
+};
+
 export function FoodieProvider({ children }) {
   const [user, setUser] = useState(null);
   const [favoriteIds, setFavoriteIds] = useState(defaultFavorites);
   const [cartItems, setCartItems] = useState([]);
   const [orders, setOrders] = useState([]);
+  const [deliverySettings, setDeliverySettings] = useState(defaultDeliverySettings);
   const [toast, setToast] = useState("");
   const [hydrated, setHydrated] = useState(false);
   const toastTimer = useRef(null);
@@ -22,11 +29,31 @@ export function FoodieProvider({ children }) {
         const savedFavorites = window.localStorage.getItem("foodiebai-favorites");
         const savedCart = window.localStorage.getItem("foodiebai-cart");
         const savedOrders = window.localStorage.getItem("foodiebai-orders");
+        const savedDeliverySettings = window.localStorage.getItem("foodiebai-delivery-settings");
 
         if (savedUser) setUser(JSON.parse(savedUser));
         if (savedFavorites) setFavoriteIds(JSON.parse(savedFavorites));
         if (savedCart) setCartItems(JSON.parse(savedCart));
         if (savedOrders) setOrders(JSON.parse(savedOrders));
+        if (savedDeliverySettings) {
+          const parsedSettings = JSON.parse(savedDeliverySettings);
+          if (parsedSettings && typeof parsedSettings === "object" && !Array.isArray(parsedSettings)) {
+            setDeliverySettings({
+              deliveryAddress:
+                typeof parsedSettings.deliveryAddress === "string"
+                  ? parsedSettings.deliveryAddress
+                  : defaultDeliverySettings.deliveryAddress,
+              deliveryInstructions:
+                typeof parsedSettings.deliveryInstructions === "string"
+                  ? parsedSettings.deliveryInstructions
+                  : defaultDeliverySettings.deliveryInstructions,
+              contactlessDelivery:
+                typeof parsedSettings.contactlessDelivery === "boolean"
+                  ? parsedSettings.contactlessDelivery
+                  : defaultDeliverySettings.contactlessDelivery,
+            });
+          }
+        }
       } catch {
         // A malformed local session should not stop the storefront from rendering.
       }
@@ -46,7 +73,8 @@ export function FoodieProvider({ children }) {
     window.localStorage.setItem("foodiebai-favorites", JSON.stringify(favoriteIds));
     window.localStorage.setItem("foodiebai-cart", JSON.stringify(cartItems));
     window.localStorage.setItem("foodiebai-orders", JSON.stringify(orders));
-  }, [hydrated, user, favoriteIds, cartItems, orders]);
+    window.localStorage.setItem("foodiebai-delivery-settings", JSON.stringify(deliverySettings));
+  }, [hydrated, user, favoriteIds, cartItems, orders, deliverySettings]);
 
   useEffect(() => () => window.clearTimeout(toastTimer.current), []);
 
@@ -118,6 +146,14 @@ export function FoodieProvider({ children }) {
     );
   };
 
+  const updateDeliverySettings = (nextSettings) => {
+    setDeliverySettings({
+      deliveryAddress: nextSettings.deliveryAddress.trim(),
+      deliveryInstructions: nextSettings.deliveryInstructions.trim(),
+      contactlessDelivery: nextSettings.contactlessDelivery,
+    });
+  };
+
   const placeOrder = () => {
     if (!cartItems.length) return null;
 
@@ -126,6 +162,9 @@ export function FoodieProvider({ children }) {
       orderId: `ORD-${String(Date.now()).slice(-6)}`,
       items: cartItems,
       totalPrice: subtotal + 49,
+      deliveryAddress: deliverySettings.deliveryAddress,
+      deliveryInstructions: deliverySettings.deliveryInstructions,
+      contactlessDelivery: deliverySettings.contactlessDelivery,
       orderTime: new Intl.DateTimeFormat("en-US", {
         month: "short",
         day: "2-digit",
@@ -152,7 +191,9 @@ export function FoodieProvider({ children }) {
     favoriteIds,
     cartItems,
     orders,
+    deliverySettings,
     cartCount,
+    showToast,
     signUp,
     signIn,
     logout,
@@ -160,6 +201,7 @@ export function FoodieProvider({ children }) {
     addToCart,
     changeQuantity,
     placeOrder,
+    updateDeliverySettings,
   };
 
   return (
@@ -180,4 +222,3 @@ export function useFoodie() {
   if (!context) throw new Error("useFoodie must be used inside FoodieProvider");
   return context;
 }
-

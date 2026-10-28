@@ -9,6 +9,7 @@ import "./(app)/saved/saved.css";
 import "./(app)/cart/cart.css";
 import "./(app)/orders/orders.css";
 import "./(app)/profile/profile.css";
+import "./(app)/settings/settings.css";
 import "./(app)/cart/order-confirmation.css";
 import "./components/shared/feedback.css";
 import { FoodieProvider } from "./providers";

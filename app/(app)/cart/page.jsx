@@ -9,7 +9,7 @@ import { foodItems } from "../../lib/food-data";
 
 export default function CartPage() {
   const router = useRouter();
-  const { cartItems, favoriteIds, toggleFavorite, changeQuantity, placeOrder, addToCart } = useFoodie();
+  const { cartItems, deliverySettings, favoriteIds, toggleFavorite, changeQuantity, placeOrder, addToCart } = useFoodie();
   const [orderSuccess, setOrderSuccess] = useState(null);
   const suggestions = foodItems
     .filter((item) => !cartItems.some((cartItem) => cartItem.id === item.id))
@@ -25,6 +25,7 @@ export default function CartPage() {
     <>
       <CartPageView
         cartItems={cartItems}
+        deliverySettings={deliverySettings}
         suggestions={suggestions}
         favoriteIds={favoriteIds}
         onChangeQuantity={changeQuantity}
