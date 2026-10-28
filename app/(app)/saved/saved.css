@@ -1,0 +1,68 @@
+/* Saved favorites page and responsive styles. */
+
+
+.sticker-heart {
+  color: var(--red);
+  background: #fbe7e3;
+}
+
+.saved-note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: -4px 0 19px;
+  padding: 13px 15px;
+  border: 1px solid rgba(15, 90, 59, 0.08);
+  border-radius: 16px;
+  background: linear-gradient(110deg, #f1f7f1, #fff);
+}
+
+.saved-note-icon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 11px;
+  color: var(--green);
+  background: var(--green-soft);
+}
+
+.saved-note p {
+  flex: 1;
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.saved-note a {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 3px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.saved-note a:hover {
+  color: var(--green-dark);
+}
+
+@media (max-width: 520px) {
+
+  .saved-note {
+    align-items: start;
+    flex-wrap: wrap;
+  }
+
+  .saved-note p {
+    flex-basis: calc(100% - 48px);
+  }
+
+  .saved-note a {
+    margin-left: 46px;
+  }
+}

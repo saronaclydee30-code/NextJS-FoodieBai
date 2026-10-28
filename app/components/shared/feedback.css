@@ -1,0 +1,45 @@
+/* Shared toast notification styles. */
+.toast {
+  position: fixed;
+  right: 24px;
+  bottom: 31px;
+  z-index: 30;
+  display: flex;
+  max-width: min(360px, calc(100vw - 48px));
+  align-items: center;
+  gap: 9px;
+  padding: 12px 16px 12px 12px;
+  border: 1px solid rgba(15, 90, 59, 0.13);
+  border-radius: 13px;
+  color: var(--green-dark);
+  background: #fff;
+  box-shadow: 0 14px 30px rgba(19, 55, 35, 0.16);
+  font-size: 12px;
+  font-weight: 800;
+  animation: toast-in 220ms ease-out;
+}
+
+.toast-icon {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--green);
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 800px) {
+
+  .toast {
+    right: 15px;
+    bottom: 84px;
+    left: 15px;
+    max-width: none;
+  }
+}
