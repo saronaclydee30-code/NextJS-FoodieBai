@@ -4,9 +4,10 @@
   min-height: 100vh;
   padding: 30px;
   background:
-    radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.9), transparent 28%),
-    radial-gradient(circle at 90% 82%, rgba(222, 239, 226, 0.9), transparent 31%),
-    var(--canvas);
+    radial-gradient(ellipse at 12% 16%, rgba(255, 255, 255, 0.96), transparent 29%),
+    radial-gradient(ellipse at 88% 82%, rgba(213, 236, 218, 0.88), transparent 32%),
+    radial-gradient(ellipse at 90% 12%, rgba(249, 231, 210, 0.5), transparent 25%),
+    linear-gradient(135deg, #f8faf6 0%, var(--canvas) 58%, #edf4ee 100%);
 }
 
 .welcome-layout {
@@ -28,7 +29,7 @@
   align-items: center;
   gap: 8px;
   color: var(--green);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   font-weight: 900;
   letter-spacing: 1.8px;
 }
@@ -42,7 +43,7 @@
   max-width: 620px;
   margin: 17px 0 0;
   color: var(--ink);
-  font-size: clamp(46px, 6.2vw, 79px);
+  font-size: calc(clamp(46px, 6.2vw, 79px) * var(--font-scale, 1));
   line-height: 0.99;
   letter-spacing: -4px;
 }
@@ -55,7 +56,7 @@
   max-width: 490px;
   margin: 24px 0 0;
   color: var(--muted);
-  font-size: 17px;
+  font-size: calc(17px * var(--font-scale, 1));
   line-height: 1.7;
 }
 
@@ -86,14 +87,14 @@
 
 .welcome-points span {
   color: var(--green);
-  font-size: 14px;
+  font-size: calc(14px * var(--font-scale, 1));
   font-weight: 900;
 }
 
 .welcome-points small {
   margin-top: 4px;
   color: var(--soft-muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 
 .welcome-actions {
@@ -251,7 +252,7 @@
 }
 
 .hero-food-caption-copy strong {
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   font-weight: 900;
   letter-spacing: 0.05px;
 }
@@ -259,7 +260,7 @@
 .hero-food-caption-copy small {
   margin-top: 3px;
   color: rgba(255, 255, 255, 0.8);
-  font-size: 10px;
+  font-size: calc(10px * var(--font-scale, 1));
   font-weight: 600;
 }
 
@@ -282,18 +283,18 @@
   gap: 4px;
   min-width: 44px;
   color: #74917c;
-  font-size: 10px;
+  font-size: calc(10px * var(--font-scale, 1));
   font-weight: 800;
 }
 
 .hero-food-count strong {
   color: var(--green-dark);
-  font-size: 15px;
+  font-size: calc(15px * var(--font-scale, 1));
 }
 
 .hero-food-deck-hint {
   color: #668271;
-  font-size: 10px;
+  font-size: calc(10px * var(--font-scale, 1));
   font-weight: 700;
   text-align: center;
 }
@@ -353,7 +354,7 @@
   }
 
   .welcome-copy h1 {
-    font-size: clamp(44px, 13vw, 67px);
+    font-size: calc(clamp(44px, 13vw, 67px) * var(--font-scale, 1));
   }
 
   .welcome-art {
@@ -369,7 +370,7 @@
 @media (max-width: 520px) {
 
   .welcome-description {
-    font-size: 15px;
+    font-size: calc(15px * var(--font-scale, 1));
   }
 
   .welcome-points > div {
@@ -377,7 +378,7 @@
   }
 
   .welcome-points small {
-    font-size: 10px;
+    font-size: calc(10px * var(--font-scale, 1));
   }
 
   .welcome-actions {
@@ -412,15 +413,15 @@
   }
 
   .hero-food-caption-copy strong {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
   }
 
   .hero-food-caption-copy small {
-    font-size: 9px;
+    font-size: calc(9px * var(--font-scale, 1));
   }
 
   .hero-food-deck-hint {
-    font-size: 9px;
+    font-size: calc(9px * var(--font-scale, 1));
   }
 
   .hero-food-controls {

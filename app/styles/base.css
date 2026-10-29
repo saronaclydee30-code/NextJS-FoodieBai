@@ -13,6 +13,7 @@
   --peach: #f7ede2;
   --red: #d93838;
   --shadow: 0 24px 60px rgba(27, 63, 42, 0.12);
+  --font-scale: 1.1;
 }
 
 * {
@@ -27,7 +28,11 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background: var(--canvas);
+  font-size: calc(16px * var(--font-scale, 1));
+  background:
+    radial-gradient(ellipse at 6% 8%, rgba(203, 229, 207, 0.72), transparent 27%),
+    radial-gradient(ellipse at 94% 88%, rgba(248, 224, 199, 0.55), transparent 29%),
+    linear-gradient(135deg, #f7faf6 0%, var(--canvas) 55%, #edf4ee 100%);
   color: var(--ink);
   font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -49,6 +54,30 @@ input:focus-visible {
   outline-offset: 3px;
 }
 
+.scroll-reveal-ready {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0) scale(0.985);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-ready.scroll-reveal-visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal-ready {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+}
+
 input::placeholder {
   color: var(--soft-muted);
   opacity: 1;
@@ -62,20 +91,21 @@ input::placeholder {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 13px;
+  gap: 10px;
+  padding: 7px 18px 7px 9px;
+  border: 1px solid rgba(15, 90, 59, 0.1);
+  border-radius: 999px;
   color: var(--green-dark);
+  background: #e7eee9;
 }
 
 .brand-logo {
   display: grid;
-  width: 52px;
-  height: 52px;
+  width: 58px;
+  height: 58px;
   place-items: center;
   overflow: hidden;
-  border: 1px solid rgba(15, 90, 59, 0.12);
-  border-radius: 17px;
-  background: #fff;
-  box-shadow: 0 8px 18px rgba(15, 90, 59, 0.1);
+  background: transparent;
 }
 
 .brand-logo img {
@@ -85,7 +115,7 @@ input::placeholder {
 }
 
 .brand-name {
-  font-size: 29px;
+  font-size: calc(31px * var(--font-scale, 1));
   font-weight: 800;
   letter-spacing: -1.3px;
 }
@@ -95,19 +125,18 @@ input::placeholder {
 }
 
 .brand-compact {
-  gap: 9px;
+  gap: 6px;
+  padding: 5px 14px 5px 7px;
 }
 
 .brand-compact .brand-logo {
-  width: 39px;
-  height: 39px;
-  border-radius: 12px;
-  box-shadow: none;
+  width: 42px;
+  height: 42px;
 }
 
 .brand-compact .brand-name {
-  font-size: 22px;
-  letter-spacing: -0.8px;
+  font-size: calc(22px * var(--font-scale, 1));
+  letter-spacing: -1px;
 }
 
 .primary-button,
@@ -119,10 +148,13 @@ input::placeholder {
   gap: 10px;
   border-radius: 17px;
   padding: 0 22px;
-  font-size: 15px;
+  font-size: calc(15px * var(--font-scale, 1));
   font-weight: 800;
   text-decoration: none;
-  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
 }
 
 .primary-button {
@@ -151,11 +183,266 @@ input::placeholder {
 
 @media (max-width: 520px) {
   .brand-name {
-    font-size: 25px;
+    font-size: calc(27px * var(--font-scale, 1));
   }
 
   .brand-logo {
-    width: 47px;
-    height: 47px;
+    width: 50px;
+    height: 50px;
   }
+
+  .brand-compact .brand-name {
+    font-size: calc(20px * var(--font-scale, 1));
+  }
+
+  .brand-compact .brand-logo {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --green: #54c58a;
+  --green-dark: #a4e6bd;
+  --green-soft: #253d31;
+  --green-pale: #1d3026;
+  --ink: #f0f4f1;
+  --muted: #c0cbc3;
+  --soft-muted: #9eada3;
+  --canvas: #111713;
+  --surface: #202923;
+  --line: #39473e;
+  --peach: #3b2e24;
+  --red: #f07878;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
+}
+
+html[data-theme="dark"] body,
+html[data-theme="dark"] .app-screen,
+html[data-theme="dark"] .auth-screen,
+html[data-theme="dark"] .welcome-screen {
+  background:
+    radial-gradient(ellipse at 6% 8%, rgba(45, 93, 62, 0.2), transparent 27%),
+    radial-gradient(ellipse at 94% 88%, rgba(109, 72, 39, 0.14), transparent 29%),
+    linear-gradient(135deg, #151d18 0%, var(--canvas) 55%, #131a15 100%);
+}
+
+html[data-theme="dark"] body {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .app-frame {
+  border-color: var(--line);
+  background:
+    radial-gradient(ellipse at 5% 12%, rgba(46, 83, 58, 0.12), transparent 34%),
+    radial-gradient(ellipse at 94% 68%, rgba(91, 67, 45, 0.1), transparent 35%),
+    var(--canvas);
+}
+
+html[data-theme="dark"] .app-topbar,
+html[data-theme="dark"] .bottom-nav {
+  border-color: var(--line);
+  background: rgba(32, 41, 35, 0.96);
+}
+
+html[data-theme="dark"] .cart-item,
+html[data-theme="dark"] .summary-card,
+html[data-theme="dark"] .promo-input-row input,
+html[data-theme="dark"] .payment-option,
+html[data-theme="dark"] .menu-refine-controls select,
+html[data-theme="dark"] .order-card,
+html[data-theme="dark"] .order-cancel-modal,
+html[data-theme="dark"] .profile-main-card,
+html[data-theme="dark"] .profile-details-card,
+html[data-theme="dark"] .profile-shortcut,
+html[data-theme="dark"] .settings-card,
+html[data-theme="dark"] .settings-link,
+html[data-theme="dark"] .field-wrap,
+html[data-theme="dark"] .toast,
+html[data-theme="dark"] .food-card,
+html[data-theme="dark"] .chip,
+html[data-theme="dark"] .search-field,
+html[data-theme="dark"] .success-modal {
+  border-color: var(--line);
+  background: var(--surface);
+}
+
+html[data-theme="dark"] .home-pick-card,
+html[data-theme="dark"] .saved-note {
+  border-color: var(--line);
+  background: linear-gradient(110deg, #25342b 0%, #202923 100%);
+}
+
+html[data-theme="dark"] .summary-delivery,
+html[data-theme="dark"] .settings-field input,
+html[data-theme="dark"] .settings-field textarea,
+html[data-theme="dark"] .settings-toggle,
+html[data-theme="dark"] .order-cancel-reason,
+html[data-theme="dark"] .order-cancel-other textarea,
+html[data-theme="dark"] .secondary-button {
+  border-color: var(--line);
+  color: var(--ink);
+  background: #18211b;
+}
+
+html[data-theme="dark"] .empty-panel,
+html[data-theme="dark"] .empty-results {
+  border-color: #435449;
+  background: rgba(32, 41, 35, 0.78);
+}
+
+html[data-theme="dark"] .primary-button,
+html[data-theme="dark"] .chip-active,
+html[data-theme="dark"] .hero-food-controls button:not(:disabled):hover {
+  color: #fff;
+  background: #176b48;
+}
+
+html[data-theme="dark"] .primary-button:hover,
+html[data-theme="dark"] .hero-food-controls button:not(:disabled):hover {
+  background: #1e8058;
+}
+
+html[data-theme="dark"] .home-hero,
+html[data-theme="dark"] .auth-poster {
+  background: #174c36;
+}
+
+html[data-theme="dark"] .promo-deal-panel {
+  background:
+    radial-gradient(circle at 15% 120%, rgba(109, 227, 157, 0.14), transparent 35%),
+    linear-gradient(120deg, #103d2c 0%, #15583d 55%, #124831 100%);
+}
+
+html[data-theme="dark"] .promo-feature-panel {
+  background:
+    radial-gradient(circle at 15% 120%, rgba(109, 227, 157, 0.14), transparent 35%),
+    linear-gradient(120deg, #103d2c 0%, #15583d 65%, #124831 100%);
+}
+
+html[data-theme="dark"] .welcome-art {
+  border-color: var(--line);
+  background:
+    radial-gradient(circle at 14% 12%, rgba(95, 133, 103, 0.2), transparent 32%),
+    linear-gradient(145deg, #26382c 0%, #1c2a21 100%);
+}
+
+html[data-theme="dark"] .welcome-points,
+html[data-theme="dark"] .hero-food-controls button {
+  border-color: var(--line);
+  background: rgba(32, 41, 35, 0.94);
+}
+
+html[data-theme="dark"] .hero-food-count,
+html[data-theme="dark"] .hero-food-deck-hint,
+html[data-theme="dark"] .home-pick-eyebrow,
+html[data-theme="dark"] .welcome-eyebrow,
+html[data-theme="dark"] .section-eyebrow {
+  color: #a5dbb9;
+}
+
+html[data-theme="dark"] .utensils-bubble {
+  color: #d7f0e0;
+  background: #253d31;
+}
+
+html[data-theme="dark"] .settings-field input,
+html[data-theme="dark"] .settings-field textarea,
+html[data-theme="dark"] .promo-input-row input,
+html[data-theme="dark"] .menu-refine-controls select {
+  color: var(--ink);
+  background-color: #18211b;
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+  color: var(--soft-muted);
+}
+
+html[data-theme="dark"] .rating-badge,
+html[data-theme="dark"] .favorite-button,
+html[data-theme="dark"] .home-pick-card .favorite-button {
+  color: #26362c;
+  background: rgba(255, 255, 255, 0.94);
+}
+
+html[data-theme="dark"] .status-badge-canceled {
+  color: #ffb1b1;
+  background: #4a2929;
+}
+
+html[data-theme="dark"] .status-badge-canceled span {
+  background: #ff8585;
+}
+
+html[data-theme="dark"] .order-cancel-link button {
+  border-color: #d44c4c;
+  color: #fff;
+  background: #b93434;
+}
+
+html[data-theme="dark"] .order-cancel-link button:hover {
+  background: #d04444;
+}
+
+html[data-theme="dark"] .order-cancel-confirm,
+html[data-theme="dark"] .logout-button {
+  color: #fff;
+  background: #9f3535;
+}
+
+html[data-theme="dark"] .form-error,
+html[data-theme="dark"] .order-canceled-reason strong,
+html[data-theme="dark"] .order-canceled-reason {
+  color: #ffaaaa;
+}
+
+html[data-theme="dark"] .cart-restriction {
+  border-color: #74523d;
+  color: #f0c6a9;
+  background: #38291f;
+}
+
+html[data-theme="dark"] .profile-avatar {
+  color: var(--green-dark);
+  background: #304c39;
+}
+
+html[data-theme="dark"] .profile-shortcut-icon.shortcut-heart {
+  color: #ffaaaa;
+  background: #4a2929;
+}
+
+html[data-theme="dark"] .profile-shortcut-icon.shortcut-menu {
+  color: #f0c17a;
+  background: #453722;
+}
+
+html[data-theme="dark"] .settings-toggle input:checked + .settings-switch {
+  background: #238253;
+}
+
+html[data-theme="dark"] .brand {
+  border-color: #405248;
+  color: #d3efdc;
+  background: #26352c;
+}
+
+html[data-theme="dark"] .settings-link img.icon,
+html[data-theme="dark"] .subpage-sticker img.icon {
+  filter: brightness(0) saturate(100%) invert(81%) sepia(17%) saturate(572%)
+    hue-rotate(89deg) brightness(95%) contrast(88%);
+}
+
+html[data-theme="dark"] .brand-logo {
+  border-radius: 0;
+  background: transparent;
+}
+
+html[data-theme="dark"] button:focus-visible,
+html[data-theme="dark"] input:focus-visible,
+html[data-theme="dark"] textarea:focus-visible,
+html[data-theme="dark"] select:focus-visible {
+  outline-color: rgba(112, 213, 157, 0.72);
 }

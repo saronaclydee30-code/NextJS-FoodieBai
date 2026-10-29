@@ -1,12 +1,11 @@
 /* Order history and progress presentation. */
 
-
 .order-kicker {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   color: var(--green);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   font-weight: 900;
   letter-spacing: 1.8px;
 }
@@ -34,17 +33,18 @@
 
 .order-progress li {
   position: relative;
+  min-width: 0;
   display: flex;
   align-items: center;
   flex-direction: column;
   gap: 7px;
   color: var(--soft-muted);
-  font-size: 10px;
+  font-size: calc(10px * var(--font-scale, 1));
   font-weight: 800;
   text-align: center;
 }
 
-.order-progress li::after {
+.order-progress li:not(:last-child)::after {
   position: absolute;
   top: 12px;
   left: calc(50% + 16px);
@@ -68,8 +68,7 @@
   border: 1px solid var(--line);
   border-radius: 50%;
   color: var(--soft-muted);
-  background: #fff;
-  font-size: 10px;
+  font-size: calc(10px * var(--font-scale, 1));
 }
 
 .order-progress-active {
@@ -110,13 +109,13 @@
 }
 
 .orders-next-step strong {
-  font-size: 13px;
+  font-size: calc(13px * var(--font-scale, 1));
 }
 
 .orders-next-step p {
   margin: 4px 0 0;
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 
 .orders-next-step .secondary-button {
@@ -124,7 +123,7 @@
   gap: 6px;
   border-radius: 12px;
   padding: 0 12px;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 
 .order-topline,
@@ -137,13 +136,13 @@
 
 .order-kicker {
   color: var(--soft-muted);
-  font-size: 9px;
+  font-size: calc(9px * var(--font-scale, 1));
   letter-spacing: 1.3px;
 }
 
 .order-topline h2 {
   margin: 5px 0 0;
-  font-size: 17px;
+  font-size: calc(17px * var(--font-scale, 1));
 }
 
 .status-badge {
@@ -154,7 +153,7 @@
   border-radius: 8px;
   color: var(--green-dark);
   background: var(--green-soft);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   font-weight: 900;
 }
 
@@ -171,14 +170,21 @@
   gap: 5px;
   margin-top: 7px;
   color: var(--soft-muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 
 .order-items {
   margin: 17px 0;
   color: var(--muted);
-  font-size: 13px;
+  font-size: calc(13px * var(--font-scale, 1));
   line-height: 1.6;
+}
+
+.order-demo-note {
+  margin: -10px 0 14px;
+  color: var(--soft-muted);
+  font-size: calc(10px * var(--font-scale, 1));
+  line-height: 1.4;
 }
 
 .order-delivery-details {
@@ -186,7 +192,7 @@
   gap: 7px;
   margin: 0 0 15px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 
 .order-delivery-details > span {
@@ -210,16 +216,189 @@
   padding-top: 13px;
   border-top: 1px solid var(--line);
   color: var(--muted);
-  font-size: 13px;
+  font-size: calc(13px * var(--font-scale, 1));
+}
+
+.order-bottomline > span {
+  color: var(--ink);
+  font-weight: 800;
 }
 
 .order-bottomline strong {
   color: var(--green-dark);
-  font-size: 17px;
+  font-size: calc(17px * var(--font-scale, 1));
+}
+
+.status-badge-canceled {
+  color: #8c3434;
+  background: #fae9e9;
+}
+
+.status-badge-canceled span {
+  background: #c75656;
+}
+
+.order-canceled-reason {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: calc(11px * var(--font-scale, 1));
+  line-height: 1.5;
+}
+
+.order-canceled-reason strong {
+  color: #8c3434;
+}
+
+.order-cancel-link {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.order-cancel-link button {
+  min-height: 38px;
+  border: 1px solid #a92f2f;
+  border-radius: 10px;
+  padding: 0 14px;
+  color: #fff;
+  background: #c83d3d;
+  font: inherit;
+  font-size: calc(12px * var(--font-scale, 1));
+  font-weight: 900;
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.order-cancel-link button:hover {
+  background: #a92f2f;
+  transform: translateY(-1px);
+}
+
+.order-cancel-modal {
+  position: relative;
+  width: min(100%, 460px);
+  max-height: calc(100vh - 40px);
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  padding: 30px;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 25px 80px rgba(8, 40, 24, 0.27);
+}
+
+.order-cancel-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 0;
+  border-radius: 10px;
+  color: var(--muted);
+  background: var(--green-pale);
+  cursor: pointer;
+}
+
+.order-cancel-modal h2 {
+  margin: 9px 36px 0 0;
+  font-size: calc(23px * var(--font-scale, 1));
+  line-height: 1.2;
+}
+
+.order-cancel-modal > p {
+  margin: 9px 0 18px;
+  color: var(--muted);
+  font-size: calc(12px * var(--font-scale, 1));
+  line-height: 1.5;
+}
+
+.order-cancel-reasons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.order-cancel-reason {
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: 8px 10px;
+  color: var(--muted);
+  background: #fff;
+  font: inherit;
+  font-size: calc(11px * var(--font-scale, 1));
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.order-cancel-reason:hover,
+.order-cancel-reason-selected {
+  border-color: #9dc5a5;
+  color: var(--green-dark);
+  background: var(--green-pale);
+}
+
+.order-cancel-other {
+  display: grid;
+  gap: 7px;
+  margin-top: 14px;
+  color: var(--ink);
+  font-size: calc(11px * var(--font-scale, 1));
+  font-weight: 800;
+}
+
+.order-cancel-other textarea {
+  width: 100%;
+  min-height: 78px;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: 10px;
+  color: var(--ink);
+  background: #fff;
+  font: inherit;
+  font-size: calc(12px * var(--font-scale, 1));
+}
+
+.order-cancel-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: 20px;
+}
+
+.order-cancel-actions .secondary-button,
+.order-cancel-confirm {
+  min-height: 40px;
+  border-radius: 11px;
+  padding: 0 14px;
+  font: inherit;
+  font-size: calc(11px * var(--font-scale, 1));
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.order-cancel-confirm {
+  border: 0;
+  color: #fff;
+  background: #a63e3e;
+}
+
+.order-cancel-confirm:hover:not(:disabled) {
+  background: #842d2d;
+}
+
+.order-cancel-confirm:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 @media (max-width: 520px) {
-
   .orders-next-step {
     align-items: start;
     flex-wrap: wrap;
@@ -227,5 +406,9 @@
 
   .orders-next-step .secondary-button {
     margin-left: 52px;
+  }
+
+  .order-cancel-modal {
+    padding: 25px 20px;
   }
 }

@@ -1,12 +1,11 @@
 /* Menu page discovery and responsive styles. */
 
-
 .menu-filter-note {
   display: flex;
   justify-content: space-between;
   margin: 3px 0 15px;
   color: var(--soft-muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   font-weight: 800;
 }
 
@@ -20,14 +19,14 @@
 
 .menu-browse-heading h2 {
   margin: 0;
-  font-size: 17px;
+  font-size: calc(17px * var(--font-scale, 1));
   letter-spacing: -0.4px;
 }
 
 .menu-browse-heading p {
   margin: 4px 0 0;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
 }
 
 .menu-result-count {
@@ -36,7 +35,7 @@
   border-radius: 999px;
   color: var(--green-dark);
   background: var(--green-soft);
-  font-size: 10px;
+  font-size: calc(10px * var(--font-scale, 1));
   font-weight: 900;
 }
 
@@ -44,8 +43,34 @@
   margin-bottom: 12px;
 }
 
-@media (max-width: 520px) {
+.menu-refine-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 15px 0 12px;
+}
 
+.menu-refine-controls label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: calc(11px * var(--font-scale, 1));
+  font-weight: 800;
+}
+
+.menu-refine-controls select {
+  width: 100%;
+  min-height: 43px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0 11px;
+  color: var(--ink);
+  background: #fff;
+  font: inherit;
+  font-size: calc(12px * var(--font-scale, 1));
+}
+
+@media (max-width: 520px) {
   .menu-browse-heading {
     align-items: start;
     flex-direction: column;

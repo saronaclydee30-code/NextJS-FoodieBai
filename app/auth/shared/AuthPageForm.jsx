@@ -10,7 +10,12 @@ import AppIcon from "../../components/shared/AppIcon";
 export default function AuthPageForm({ mode }) {
   const router = useRouter();
   const { signUp, signIn } = useFoodie();
-  const [form, setForm] = useState({ username: "", email: "", identifier: "", password: "" });
+  const [form, setForm] = useState({
+    username: "",
+    email: "",
+    identifier: "",
+    password: "",
+  });
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const isSignUp = mode === "signup";
@@ -31,8 +36,14 @@ export default function AuthPageForm({ mode }) {
       <div className="auth-layout">
         <div className="auth-poster">
           <FoodieBaiBrand />
-          <div className="poster-badge"><AppIcon name="sparkles" size={15} /> Good food, good mood</div>
-          <h1>{isSignUp ? "Your next favorite meal is waiting." : "Welcome back, FoodieUser."}</h1>
+          <div className="poster-badge">
+            <AppIcon name="sparkles" size={15} /> Good food, good mood
+          </div>
+          <h1>
+            {isSignUp
+              ? "Your next favorite meal is waiting."
+              : "Welcome back, FoodieUser."}
+          </h1>
           <p>Order from the local spots you love, all in one cozy place.</p>
           <div className="poster-plate">
             <span className="plate-shadow" />
@@ -49,8 +60,15 @@ export default function AuthPageForm({ mode }) {
           <div className="auth-heading">
             <span className="auth-kicker">FOODIEBAI ACCOUNT</span>
             <h2>{isSignUp ? "Create your account" : "Sign in to FoodieBai"}</h2>
-            <p>{isSignUp ? "Save favorites and order in a few taps." : "Pick up where your next meal left off."}</p>
+            <p>
+              {isSignUp
+                ? "Save favorites and order in a few taps."
+                : "Pick up where your next meal left off."}
+            </p>
           </div>
+          <p className="auth-demo-note">
+            Prototype access only. Passwords are not verified by a server.
+          </p>
 
           <form className="auth-form" onSubmit={handleSubmit}>
             {isSignUp && (
@@ -61,7 +79,9 @@ export default function AuthPageForm({ mode }) {
                   <input
                     type="text"
                     value={form.username}
-                    onChange={(event) => setForm({ ...form, username: event.target.value })}
+                    onChange={(event) =>
+                      setForm({ ...form, username: event.target.value })
+                    }
                     placeholder="Choose a username"
                     autoComplete="username"
                   />
@@ -71,12 +91,15 @@ export default function AuthPageForm({ mode }) {
             <label className="field-label">
               {isSignUp ? "Email address" : "Email or username"}
               <span className="field-wrap">
-                  <AppIcon name="mail" size={18} />
+                <AppIcon name="mail" size={18} />
                 <input
                   type={isSignUp ? "email" : "text"}
                   value={isSignUp ? form.email : form.identifier}
                   onChange={(event) =>
-                    setForm({ ...form, [isSignUp ? "email" : "identifier"]: event.target.value })
+                    setForm({
+                      ...form,
+                      [isSignUp ? "email" : "identifier"]: event.target.value,
+                    })
                   }
                   placeholder={isSignUp ? "you@example.com" : "FoodieUser"}
                   autoComplete={isSignUp ? "email" : "username"}
@@ -86,11 +109,13 @@ export default function AuthPageForm({ mode }) {
             <label className="field-label">
               Password
               <span className="field-wrap">
-                  <AppIcon name="lock" size={18} />
+                <AppIcon name="lock" size={18} />
                 <input
                   type={showPassword ? "text" : "password"}
                   value={form.password}
-                  onChange={(event) => setForm({ ...form, password: event.target.value })}
+                  onChange={(event) =>
+                    setForm({ ...form, password: event.target.value })
+                  }
                   placeholder="••••••••"
                   autoComplete={isSignUp ? "new-password" : "current-password"}
                 />
@@ -122,4 +147,3 @@ export default function AuthPageForm({ mode }) {
     </main>
   );
 }
-

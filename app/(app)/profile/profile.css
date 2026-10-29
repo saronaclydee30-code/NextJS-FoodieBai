@@ -32,19 +32,19 @@
   border-radius: 50%;
   color: var(--green-dark);
   background: #c8e2cf;
-  font-size: 32px;
+  font-size: calc(32px * var(--font-scale, 1));
   font-weight: 900;
 }
 
 .profile-main-card h2 {
   margin: 13px 0 0;
-  font-size: 21px;
+  font-size: calc(21px * var(--font-scale, 1));
 }
 
 .profile-main-card > p {
   margin: 5px 0 0;
   color: var(--muted);
-  font-size: 13px;
+  font-size: calc(13px * var(--font-scale, 1));
 }
 
 .profile-stats {
@@ -67,13 +67,13 @@
 
 .profile-stats strong {
   color: var(--green-dark);
-  font-size: 21px;
+  font-size: calc(21px * var(--font-scale, 1));
 }
 
 .profile-stats span {
   margin-top: 4px;
   color: var(--soft-muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 
 .profile-details-card {
@@ -93,7 +93,7 @@
 
 .profile-shortcuts-note {
   color: var(--soft-muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 
 .profile-shortcut-grid {
@@ -155,7 +155,7 @@
 
 .profile-shortcut strong {
   overflow: hidden;
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -163,7 +163,7 @@
 .profile-shortcut small {
   margin-top: 5px;
   color: var(--muted);
-  font-size: 10px;
+  font-size: calc(10px * var(--font-scale, 1));
   line-height: 1.35;
 }
 
@@ -187,7 +187,7 @@
   align-items: center;
   gap: 7px;
   color: var(--soft-muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   font-weight: 900;
   text-transform: uppercase;
 }
@@ -198,7 +198,7 @@
 
 .detail-row strong {
   color: var(--ink);
-  font-size: 14px;
+  font-size: calc(14px * var(--font-scale, 1));
 }
 
 .logout-button {

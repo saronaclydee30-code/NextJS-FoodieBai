@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import AppIcon from "../components/shared/AppIcon";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 const foodPhotos = [
   {
@@ -58,6 +59,7 @@ const foodPhotos = [
 export default function WelcomeFoodDeck() {
   const [activeIndex, setActiveIndex] = useState(0);
   const deckRef = useRef(null);
+  useScrollReveal(deckRef);
   const touchStartRef = useRef(null);
   const lastWheelChangeRef = useRef(0);
   const wheelDeltaRef = useRef(0);

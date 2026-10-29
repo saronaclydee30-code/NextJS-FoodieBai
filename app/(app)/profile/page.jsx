@@ -19,6 +19,7 @@ export default function ProfilePage() {
       orders={orders}
       favoriteCount={favoriteIds.length}
       deliveryAddress={deliverySettings.deliveryAddress}
+      phoneNumber={deliverySettings.phoneNumber}
       onLogout={handleLogout}
     />
   );

@@ -14,7 +14,7 @@
   color: var(--green-dark);
   background: #fff;
   box-shadow: 0 14px 30px rgba(19, 55, 35, 0.16);
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   font-weight: 800;
   animation: toast-in 220ms ease-out;
 }

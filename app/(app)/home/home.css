@@ -7,7 +7,7 @@
   align-items: center;
   gap: 8px;
   color: var(--green);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   font-weight: 900;
   letter-spacing: 1.8px;
 }
@@ -52,7 +52,7 @@
 
 .home-hero h1 {
   margin: 10px 0 0;
-  font-size: clamp(31px, 4vw, 46px);
+  font-size: calc(clamp(31px, 4vw, 46px) * var(--font-scale, 1));
   line-height: 1;
   letter-spacing: -2px;
 }
@@ -60,7 +60,7 @@
 .home-hero p {
   margin: 9px 0 0;
   color: #c8e3d2;
-  font-size: 14px;
+  font-size: calc(14px * var(--font-scale, 1));
 }
 
 .utensils-bubble {
@@ -82,136 +82,188 @@
 }
 
 .promo-card {
-  position: relative;
-  isolation: isolate;
-  display: flex;
-  min-height: 159px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px 34px;
-  overflow: hidden;
-  border: 1px solid rgba(151, 240, 186, 0.24);
-  border-radius: 23px;
-  background:
-    radial-gradient(circle at 82% 18%, rgba(244, 207, 105, 0.2), transparent 23%),
-    radial-gradient(circle at 15% 120%, rgba(109, 227, 157, 0.2), transparent 35%),
-    linear-gradient(120deg, #0a4a31 0%, #0f6845 55%, #0b5438 100%);
-  box-shadow: 0 15px 28px rgba(10, 75, 48, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-.promo-card::before {
-  position: absolute;
-  top: -80%;
-  bottom: -80%;
-  left: -28%;
-  width: 42%;
-  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.14), transparent);
-  content: "";
-  pointer-events: none;
-  transform: rotate(18deg);
-  animation: promo-card-shimmer 8s ease-in-out infinite;
-}
-
-.promo-card::after {
-  position: absolute;
-  right: -55px;
-  bottom: -126px;
-  width: 265px;
-  height: 265px;
-  border: 1px solid rgba(178, 244, 202, 0.24);
-  border-radius: 50%;
-  box-shadow: 0 0 0 22px rgba(178, 244, 202, 0.045), 0 0 0 48px rgba(244, 207, 105, 0.05);
-  content: "";
-  pointer-events: none;
-  animation: promo-card-orbit 14s linear infinite;
-}
-
-.promo-card-copy {
-  position: relative;
-  z-index: 2;
+  display: grid;
+  min-height: 232px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px;
 }
 
 .promo-eyebrow {
-  color: #b9f0cc;
-  font-size: 11px;
+  color: #c1efd0;
+  font-size: calc(11px * var(--font-scale, 1));
+  font-weight: 900;
+  letter-spacing: 1.5px;
 }
 
-.promo-card h2 {
-  position: relative;
-  z-index: 1;
-  margin: 9px 0 0;
+.promo-feature-panel {
+  display: grid;
+  min-width: 0;
+  min-height: 232px;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  overflow: hidden;
+  border-radius: 23px;
   color: #f3fff6;
-  font-size: 22px;
-  line-height: 1.1;
-  letter-spacing: -1px;
+  background:
+    radial-gradient(circle at 15% 120%, rgba(109, 227, 157, 0.2), transparent 35%),
+    linear-gradient(120deg, #0a4a31 0%, #0f6845 65%, #0b5438 100%);
+  box-shadow: 0 15px 28px rgba(10, 75, 48, 0.18);
 }
 
-.text-link {
-  display: inline-flex;
+.promo-feature-copy {
   position: relative;
   z-index: 1;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 22px 0 22px 27px;
+}
+
+.promo-feature-copy h2 {
+  max-width: 350px;
+  margin: 10px 0 0;
+  color: #f3fff6;
+  font-size: calc(27px * var(--font-scale, 1));
+  line-height: 1.1;
+  letter-spacing: -0.8px;
+}
+
+.promo-feature-cta {
+  display: inline-flex;
   align-items: center;
-  gap: 3px;
-  margin-top: 13px;
+  gap: 4px;
+  margin-top: 15px;
   padding: 0;
   color: #ffe28b;
   background: transparent;
-  font-size: 13px;
+  font-size: calc(13px * var(--font-scale, 1));
   font-weight: 900;
 }
 
-.text-link:hover {
+.promo-feature-cta:hover {
   color: #fff2bc;
 }
 
-.promo-food {
+.promo-feature-image {
+  display: flex;
+  min-width: 0;
+  min-height: 232px;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 34%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 34%);
+}
+
+.promo-food-image {
+  display: block;
+  width: 126%;
+  max-width: none;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.2));
+}
+
+.promo-deal-panel {
   position: relative;
-  z-index: 1;
-  display: grid;
-  width: 128px;
-  height: 128px;
-  place-items: center;
-  border: 11px solid rgba(244, 255, 247, 0.88);
-  border-radius: 50%;
-  background: #f2cd62;
-  box-shadow: 0 12px 20px rgba(3, 38, 23, 0.28), 0 0 0 7px rgba(244, 207, 105, 0.1);
-  font-size: 62px;
-  animation: promo-food-float 4s ease-in-out infinite;
+  display: flex;
+  min-width: 0;
+  min-height: 232px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+  padding: 23px 65px 48px 27px;
+  border: 1px solid rgba(151, 240, 186, 0.24);
+  border-radius: 23px;
+  background:
+    radial-gradient(circle at 15% 120%, rgba(109, 227, 157, 0.2), transparent 35%),
+    linear-gradient(120deg, #0a4a31 0%, #0f6845 55%, #0b5438 100%);
+  box-shadow: 0 15px 28px rgba(10, 75, 48, 0.18);
 }
 
-.promo-spark {
-  position: absolute;
-  top: 24px;
-  right: 32px;
-  z-index: 2;
+.promo-deals-viewport {
+  width: 100%;
+  overflow: clip;
+  contain: paint;
+}
+
+.promo-deal {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: promo-deal-enter 180ms ease both;
+}
+
+@keyframes promo-deal-enter {
+  from { opacity: 0.65; }
+  to { opacity: 1; }
+}
+
+.promo-deal h2 {
+  margin: 9px 0 0;
+  color: #f3fff6;
+  font-size: calc(31px * var(--font-scale, 1));
+  line-height: 1.1;
+  letter-spacing: -1.2px;
+}
+
+.promo-deal p {
+  max-width: 300px;
+  margin: 8px 0 0;
+  color: #e0f2e6;
+  font-size: calc(13px * var(--font-scale, 1));
+  line-height: 1.5;
+}
+
+.promo-deal-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 11px;
+  border: 1px dashed rgba(233, 255, 238, 0.55);
+  border-radius: 8px;
+  padding: 5px 9px;
+  color: #d7f0df;
+  font-size: calc(11px * var(--font-scale, 1));
+}
+
+.promo-deal-code strong {
   color: #ffe28b;
-  font-size: 22px;
-  text-shadow: 0 0 13px rgba(255, 226, 139, 0.68);
-  animation: promo-spark-twinkle 2.8s ease-in-out infinite;
+  letter-spacing: 0.7px;
 }
 
-@keyframes promo-card-shimmer {
-  0%,
-  60%,
-  100% { left: -35%; opacity: 0; }
-  18% { opacity: 1; }
-  42% { left: 120%; opacity: 0; }
+.promo-deal-controls {
+  position: absolute;
+  right: 15px;
+  bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #d7f0df;
+  font-size: calc(10px * var(--font-scale, 1));
+  font-weight: 800;
 }
 
-@keyframes promo-card-orbit {
-  to { transform: rotate(360deg); }
+.promo-deal-controls button {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid rgba(233, 255, 238, 0.34);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(5, 48, 31, 0.38);
+  transition:
+    background 160ms ease,
+    transform 160ms ease;
 }
 
-@keyframes promo-food-float {
-  0%,
-  100% { transform: rotate(6deg) translateY(0); }
-  50% { transform: rotate(-4deg) translateY(-6px); }
-}
-
-@keyframes promo-spark-twinkle {
-  0%,
-  100% { opacity: 0.45; transform: scale(0.82) rotate(0deg); }
-  50% { opacity: 1; transform: scale(1.16) rotate(18deg); }
+.promo-deal-controls button:hover {
+  background: rgba(5, 48, 31, 0.72);
+  transform: translateY(-1px);
 }
 
 .home-pick-card {
@@ -239,7 +291,7 @@
 }
 
 .home-pick-art .food-emoji {
-  font-size: 45px;
+  font-size: calc(45px * var(--font-scale, 1));
   filter: drop-shadow(0 7px 5px rgba(70, 49, 21, 0.15));
   animation: promo-food-float 4s ease-in-out infinite;
 }
@@ -253,7 +305,7 @@
   align-items: center;
   gap: 5px;
   color: #699078;
-  font-size: 9px;
+  font-size: calc(9px * var(--font-scale, 1));
   font-weight: 900;
   letter-spacing: 1.1px;
 }
@@ -261,7 +313,7 @@
 .home-pick-copy h2 {
   margin: 6px 0 0;
   overflow: hidden;
-  font-size: 16px;
+  font-size: calc(16px * var(--font-scale, 1));
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -272,7 +324,7 @@
   gap: 5px;
   margin: 6px 0 0;
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 
 .home-pick-copy p .icon {
@@ -288,7 +340,7 @@
 
 .home-pick-action > strong {
   color: var(--green-dark);
-  font-size: 16px;
+  font-size: calc(16px * var(--font-scale, 1));
 }
 
 .home-pick-action .primary-button {
@@ -296,13 +348,13 @@
   gap: 6px;
   border-radius: 12px;
   padding: 0 12px;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 
 .category-heading {
   margin: 20px 0 8px;
   color: var(--ink);
-  font-size: 15px;
+  font-size: calc(15px * var(--font-scale, 1));
   font-weight: 900;
 }
 
@@ -325,7 +377,7 @@
   }
 
   .home-hero h1 {
-    font-size: 35px;
+    font-size: calc(35px * var(--font-scale, 1));
   }
 
   .utensils-bubble {
@@ -340,7 +392,40 @@
   }
 
   .promo-card {
-    padding: 20px 21px;
+    min-height: 200px;
+    gap: 10px;
+  }
+
+  .promo-feature-panel,
+  .promo-feature-image,
+  .promo-deal-panel {
+    min-height: 200px;
+  }
+
+  .promo-feature-image {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 40%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 40%);
+  }
+
+  .promo-food-image {
+    width: 138%;
+  }
+
+  .promo-feature-copy {
+    padding-left: 20px;
+  }
+
+  .promo-feature-copy h2 {
+    font-size: calc(24px * var(--font-scale, 1));
+  }
+
+  .promo-deal-panel {
+    padding: 20px 58px 48px 20px;
+  }
+
+  .promo-deal-controls {
+    top: 14px;
+    bottom: auto;
   }
 
   .home-pick-card {
@@ -355,7 +440,7 @@
   }
 
   .home-pick-art .food-emoji {
-    font-size: 37px;
+    font-size: calc(37px * var(--font-scale, 1));
   }
 
   .home-pick-action .primary-button {
@@ -363,19 +448,53 @@
     padding: 0 9px;
   }
 
-  .promo-card h2 {
-    font-size: 19px;
-  }
-
-  .promo-food {
-    width: 94px;
-    height: 94px;
-    border-width: 9px;
-    font-size: 45px;
+  .promo-deal h2 {
+    font-size: calc(26px * var(--font-scale, 1));
   }
 }
 
 @media (max-width: 520px) {
+
+  .promo-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .promo-feature-panel,
+  .promo-feature-image,
+  .promo-deal-panel {
+    min-height: 200px;
+  }
+
+  .promo-feature-panel {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  }
+
+  .promo-feature-copy {
+    padding: 17px 0 17px 16px;
+  }
+
+  .promo-feature-copy h2 {
+    font-size: calc(21px * var(--font-scale, 1));
+    letter-spacing: -0.5px;
+  }
+
+  .promo-feature-cta {
+    gap: 2px;
+    font-size: calc(11px * var(--font-scale, 1));
+  }
+
+  .promo-deal h2 {
+    font-size: calc(28px * var(--font-scale, 1));
+  }
+
+  .promo-food-image {
+    width: 145%;
+  }
+
+  .promo-eyebrow {
+    font-size: calc(9px * var(--font-scale, 1));
+    letter-spacing: 1px;
+  }
 
   .home-pick-card {
     grid-template-columns: 55px minmax(0, 1fr);
@@ -388,21 +507,21 @@
   }
 
   .home-pick-art .food-emoji {
-    font-size: 32px;
+    font-size: calc(32px * var(--font-scale, 1));
   }
 
   .home-pick-eyebrow {
-    font-size: 8px;
+    font-size: calc(8px * var(--font-scale, 1));
     letter-spacing: 0.7px;
   }
 
   .home-pick-copy h2 {
-    font-size: 13px;
+    font-size: calc(13px * var(--font-scale, 1));
   }
 
   .home-pick-copy p {
     flex-wrap: wrap;
-    font-size: 10px;
+    font-size: calc(10px * var(--font-scale, 1));
   }
 
   .home-pick-action {
@@ -418,11 +537,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .promo-card::before,
-.promo-card::after,
-.promo-food,
-.promo-spark,
-  .home-pick-art .food-emoji {
+  .home-pick-art .food-emoji,
+  .promo-deal {
     animation: none;
   }
 }

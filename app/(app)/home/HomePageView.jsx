@@ -1,4 +1,10 @@
+"use client";
+
+import Image from "next/image";
+import { useState } from "react";
 import { categories, restaurants } from "../../lib/food-data";
+import { promoDeals } from "../../lib/promo-deals";
+import useScrollReveal from "../../hooks/useScrollReveal";
 import FoodFilterChip from "../../components/food/FoodFilterChip";
 import FoodMenuGrid from "../../components/food/FoodMenuGrid";
 import AppIcon from "../../components/shared/AppIcon";
@@ -21,6 +27,8 @@ export default function HomePageView({
   onOpenMenu,
 }) {
   const featuredItem = [...items].sort((first, second) => second.rating - first.rating)[0];
+  const [activeDeal, setActiveDeal] = useState(0);
+  const promoDealsRef = useScrollReveal();
 
   return (
     <section className="home-view">
@@ -38,13 +46,71 @@ export default function HomePageView({
 
       <div className="home-content">
         <div className="promo-card">
-          <div className="promo-card-copy">
-            <span className="promo-eyebrow">TODAY&apos;S SPECIAL</span>
-            <h2>Top Fast Food<br />Favorites Delivered!</h2>
-            <button className="text-link" type="button" onClick={onOpenMenu}>Explore full menu <AppIcon name="chevronRight" size={15} /></button>
-          </div>
-          <div className="promo-food" aria-hidden="true">🍔</div>
-          <span className="promo-spark" aria-hidden="true">✦</span>
+          <section className="promo-feature-panel" aria-label="Today's special">
+            <div className="promo-feature-copy">
+              <span className="promo-eyebrow">TODAY&apos;S SPECIAL</span>
+              <h2>Top Fast Food Favorites Delivered!</h2>
+              <button
+                className="promo-feature-cta"
+                type="button"
+                onClick={onOpenMenu}
+              >
+                Explore full menu <AppIcon name="chevronRight" size={16} />
+              </button>
+            </div>
+            <div className="promo-feature-image">
+              <Image
+                className="promo-food-image"
+                src="/promo-fries-cutout.png"
+                alt="Golden fries served in a red carton"
+                width={481}
+                height={321}
+                priority
+              />
+            </div>
+          </section>
+          <section
+            ref={promoDealsRef}
+            className="promo-deal-panel"
+            aria-label="Discount deals"
+          >
+            <div className="promo-deals-viewport" aria-live="polite">
+              <article className="promo-deal" key={promoDeals[activeDeal].code}>
+                <span className="promo-eyebrow">TODAY&apos;S DEALS</span>
+                <h2>{promoDeals[activeDeal].title}</h2>
+                <p>{promoDeals[activeDeal].description}</p>
+                <span className="promo-deal-code">
+                  Use code <strong>{promoDeals[activeDeal].code}</strong>
+                </span>
+              </article>
+            </div>
+            <div className="promo-deal-controls">
+              <span aria-label={`Deal ${activeDeal + 1} of ${promoDeals.length}`}>
+                {activeDeal + 1} / {promoDeals.length}
+              </span>
+              <button
+                type="button"
+                aria-label="Previous discount deal"
+                onClick={() =>
+                  setActiveDeal(
+                    (current) =>
+                      (current - 1 + promoDeals.length) % promoDeals.length,
+                  )
+                }
+              >
+                <AppIcon name="back" size={17} />
+              </button>
+              <button
+                type="button"
+                aria-label="Next discount deal"
+                onClick={() =>
+                  setActiveDeal((current) => (current + 1) % promoDeals.length)
+                }
+              >
+                <AppIcon name="chevronRight" size={17} />
+              </button>
+            </div>
+          </section>
         </div>
 
         {featuredItem && (

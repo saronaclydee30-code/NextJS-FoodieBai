@@ -4,9 +4,22 @@
   min-height: 100vh;
   padding: 30px;
   background:
-    radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.9), transparent 28%),
-    radial-gradient(circle at 90% 82%, rgba(222, 239, 226, 0.9), transparent 31%),
-    var(--canvas);
+    radial-gradient(
+      ellipse at 12% 12%,
+      rgba(255, 255, 255, 0.96),
+      transparent 29%
+    ),
+    radial-gradient(
+      ellipse at 88% 82%,
+      rgba(213, 236, 218, 0.9),
+      transparent 32%
+    ),
+    radial-gradient(
+      ellipse at 92% 14%,
+      rgba(249, 231, 210, 0.46),
+      transparent 25%
+    ),
+    linear-gradient(135deg, #f8faf6 0%, var(--canvas) 58%, #edf4ee 100%);
 }
 
 .auth-kicker {
@@ -14,7 +27,7 @@
   align-items: center;
   gap: 8px;
   color: var(--green);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   font-weight: 900;
   letter-spacing: 1.8px;
 }
@@ -40,11 +53,11 @@
 }
 
 .auth-poster .brand {
-  color: #fff;
+  color: var(--green-dark);
 }
 
 .auth-poster .brand-name span {
-  color: #aad5bb;
+  color: #4a9668;
 }
 
 .poster-badge {
@@ -53,7 +66,7 @@
   gap: 8px;
   margin-top: 98px;
   color: #a6d3b7;
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   font-weight: 800;
   letter-spacing: 0.6px;
 }
@@ -61,7 +74,7 @@
 .auth-poster h1 {
   max-width: 480px;
   margin: 13px 0 0;
-  font-size: clamp(38px, 4.5vw, 61px);
+  font-size: calc(clamp(38px, 4.5vw, 61px) * var(--font-scale, 1));
   line-height: 1.02;
   letter-spacing: -3px;
 }
@@ -83,7 +96,9 @@
   border: 16px solid rgba(255, 255, 255, 0.88);
   border-radius: 50%;
   background: #e4b16b;
-  box-shadow: 0 0 0 24px rgba(255, 255, 255, 0.1), 0 22px 32px rgba(0, 0, 0, 0.18);
+  box-shadow:
+    0 0 0 24px rgba(255, 255, 255, 0.1),
+    0 22px 32px rgba(0, 0, 0, 0.18);
 }
 
 .plate-shadow {
@@ -98,14 +113,14 @@
 .plate-food {
   position: relative;
   z-index: 1;
-  font-size: 94px;
+  font-size: calc(94px * var(--font-scale, 1));
   filter: drop-shadow(0 10px 4px rgba(69, 36, 15, 0.16));
 }
 
 .plate-sparkle {
   position: absolute;
   color: #ffe69d;
-  font-size: 23px;
+  font-size: calc(23px * var(--font-scale, 1));
 }
 
 .sparkle-one {
@@ -116,7 +131,7 @@
 .sparkle-two {
   bottom: 33px;
   left: 22px;
-  font-size: 16px;
+  font-size: calc(16px * var(--font-scale, 1));
 }
 
 .auth-card {
@@ -131,7 +146,7 @@
   padding: 0;
   color: var(--muted);
   background: transparent;
-  font-size: 13px;
+  font-size: calc(13px * var(--font-scale, 1));
   font-weight: 800;
   text-decoration: none;
 }
@@ -150,7 +165,7 @@
 
 .auth-heading h2 {
   margin: 10px 0 0;
-  font-size: clamp(30px, 4vw, 43px);
+  font-size: calc(clamp(30px, 4vw, 43px) * var(--font-scale, 1));
   line-height: 1.04;
   letter-spacing: -2px;
 }
@@ -159,6 +174,13 @@
   margin: 12px 0 0;
   color: var(--muted);
   line-height: 1.5;
+}
+
+.auth-demo-note {
+  margin: 14px 0 -18px;
+  color: var(--soft-muted);
+  font-size: calc(11px * var(--font-scale, 1));
+  line-height: 1.45;
 }
 
 .auth-form {
@@ -171,7 +193,7 @@
   display: grid;
   gap: 8px;
   color: var(--ink);
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   font-weight: 900;
 }
 
@@ -185,7 +207,9 @@
   border-radius: 15px;
   color: var(--soft-muted);
   background: #fff;
-  transition: border 180ms ease, box-shadow 180ms ease;
+  transition:
+    border 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .field-wrap:focus-within {
@@ -200,7 +224,7 @@
   outline: 0;
   color: var(--ink);
   background: transparent;
-  font-size: 14px;
+  font-size: calc(14px * var(--font-scale, 1));
 }
 
 .password-toggle {
@@ -218,7 +242,7 @@
 .form-error {
   margin: -3px 0 0;
   color: #b33131;
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   font-weight: 800;
 }
 
@@ -230,7 +254,7 @@
 .auth-switch {
   margin: 25px 0 0;
   color: var(--muted);
-  font-size: 13px;
+  font-size: calc(13px * var(--font-scale, 1));
   text-align: center;
 }
 
@@ -272,7 +296,7 @@
 
   .auth-poster h1 {
     max-width: 540px;
-    font-size: 39px;
+    font-size: calc(39px * var(--font-scale, 1));
   }
 
   .poster-plate {
@@ -285,7 +309,7 @@
   }
 
   .plate-food {
-    font-size: 65px;
+    font-size: calc(65px * var(--font-scale, 1));
   }
 
   .auth-card {
@@ -298,14 +322,13 @@
 }
 
 @media (max-width: 520px) {
-
   .auth-poster {
     min-height: 310px;
   }
 
   .auth-poster h1 {
     max-width: 67%;
-    font-size: 31px;
+    font-size: calc(31px * var(--font-scale, 1));
   }
 
   .poster-plate {
@@ -316,6 +339,6 @@
   }
 
   .plate-food {
-    font-size: 50px;
+    font-size: calc(50px * var(--font-scale, 1));
   }
 }

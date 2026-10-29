@@ -38,22 +38,63 @@
   border-radius: 14px;
 }
 
+.settings-text-icon {
+  font-size: calc(15px * var(--font-scale, 1));
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.settings-dark-mode-icon {
+  border-radius: 14px;
+}
+
+.settings-text-control {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+  font-size: calc(13px * var(--font-scale, 1));
+  font-weight: 800;
+}
+
+.settings-text-control output {
+  color: var(--green-dark);
+  font-variant-numeric: tabular-nums;
+}
+
+.settings-text-control input {
+  width: 100%;
+  grid-column: 1 / -1;
+  accent-color: var(--green);
+  cursor: pointer;
+}
+
+.settings-text-range-labels {
+  display: flex;
+  grid-column: 1 / -1;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: calc(11px * var(--font-scale, 1));
+  font-weight: 600;
+}
+
 .settings-card-heading h2 {
   margin: 0;
-  font-size: 17px;
+  font-size: calc(17px * var(--font-scale, 1));
 }
 
 .settings-card-heading p {
   margin: 5px 0 0;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
 }
 
 .settings-field {
   display: grid;
   gap: 8px;
   color: var(--ink);
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   font-weight: 900;
 }
 
@@ -66,7 +107,7 @@
 .settings-field > span small,
 .settings-field-hint {
   color: var(--soft-muted);
-  font-size: 10px;
+  font-size: calc(10px * var(--font-scale, 1));
   font-weight: 700;
 }
 
@@ -80,7 +121,7 @@
   color: var(--ink);
   background: #fbfdfb;
   font: inherit;
-  font-size: 13px;
+  font-size: calc(13px * var(--font-scale, 1));
   font-weight: 500;
   transition: border-color 160ms ease, box-shadow 160ms ease;
 }
@@ -127,12 +168,12 @@
 }
 
 .settings-toggle-copy strong {
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
 }
 
 .settings-toggle-copy small {
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   line-height: 1.4;
 }
 
@@ -192,13 +233,13 @@
   gap: 7px;
   margin: 0;
   color: var(--soft-muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 
 .settings-footer .primary-button {
   min-height: 46px;
   border-radius: 13px;
-  font-size: 13px;
+  font-size: calc(13px * var(--font-scale, 1));
 }
 
 .settings-link {
@@ -211,7 +252,7 @@
   border-radius: 12px;
   color: var(--muted);
   background: #fff;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   font-weight: 900;
   text-decoration: none;
   transition: color 160ms ease, border-color 160ms ease, background 160ms ease;

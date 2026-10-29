@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useFoodie } from "../../providers";
 import FoodieBaiBrand from "./FoodieBaiBrand";
@@ -37,7 +38,7 @@ export default function AppNavigationShell({ children }) {
               aria-label="Open settings"
               aria-current={isActiveRoute(pathname, "settings") ? "page" : undefined}
             >
-              <AppIcon name="settings" size={19} />
+              <Image className="icon" src="/settings-icon.png" alt="" width={19} height={19} />
               <span>Settings</span>
             </Link>
             <Link className="top-avatar" href="/profile" aria-label="Open profile">{activeUser.slice(0, 1).toUpperCase()}</Link>

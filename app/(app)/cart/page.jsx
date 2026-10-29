@@ -9,15 +9,23 @@ import { foodItems } from "../../lib/food-data";
 
 export default function CartPage() {
   const router = useRouter();
-  const { cartItems, deliverySettings, favoriteIds, toggleFavorite, changeQuantity, placeOrder, addToCart } = useFoodie();
+  const {
+    cartItems,
+    deliverySettings,
+    favoriteIds,
+    toggleFavorite,
+    changeQuantity,
+    placeOrder,
+    addToCart,
+  } = useFoodie();
   const [orderSuccess, setOrderSuccess] = useState(null);
   const suggestions = foodItems
     .filter((item) => !cartItems.some((cartItem) => cartItem.id === item.id))
     .sort((first, second) => second.rating - first.rating)
     .slice(0, 4);
 
-  const handlePlaceOrder = () => {
-    const order = placeOrder();
+  const handlePlaceOrder = (checkoutDetails) => {
+    const order = placeOrder(checkoutDetails);
     if (order) setOrderSuccess(order);
   };
 
