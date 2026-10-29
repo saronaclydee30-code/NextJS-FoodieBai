@@ -1,0 +1,452 @@
+/* Welcome page layout, photo deck, and responsive styles. */
+
+.welcome-screen {
+  min-height: 100vh;
+  padding: 30px;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.9), transparent 28%),
+    radial-gradient(circle at 90% 82%, rgba(222, 239, 226, 0.9), transparent 31%),
+    var(--canvas);
+}
+
+.welcome-layout {
+  display: grid;
+  max-width: 1160px;
+  min-height: calc(100vh - 60px);
+  margin: 0 auto;
+  grid-template-columns: minmax(0, 0.91fr) minmax(380px, 0.9fr);
+  align-items: center;
+  gap: clamp(45px, 8vw, 120px);
+}
+
+.welcome-copy {
+  padding: 20px 0;
+}
+
+.welcome-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.8px;
+}
+
+.welcome-eyebrow {
+  margin-top: 68px;
+  color: #699078;
+}
+
+.welcome-copy h1 {
+  max-width: 620px;
+  margin: 17px 0 0;
+  color: var(--ink);
+  font-size: clamp(46px, 6.2vw, 79px);
+  line-height: 0.99;
+  letter-spacing: -4px;
+}
+
+.welcome-copy h1 span {
+  color: var(--green);
+}
+
+.welcome-description {
+  max-width: 490px;
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.welcome-points {
+  display: flex;
+  max-width: 485px;
+  margin-top: 30px;
+  padding: 17px 9px;
+  border: 1px solid rgba(15, 90, 59, 0.09);
+  border-radius: 19px;
+  background: rgba(255, 255, 255, 0.64);
+}
+
+.welcome-points > div {
+  flex: 1;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.welcome-points > div + div {
+  border-left: 1px solid var(--line);
+}
+
+.welcome-points span,
+.welcome-points small {
+  display: block;
+}
+
+.welcome-points span {
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.welcome-points small {
+  margin-top: 4px;
+  color: var(--soft-muted);
+  font-size: 11px;
+}
+
+.welcome-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+  margin-top: 25px;
+}
+
+.welcome-art {
+  position: relative;
+  display: grid;
+  min-height: 500px;
+  place-items: center;
+  padding: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 90, 59, 0.1);
+  border-radius: 36px;
+  background:
+    radial-gradient(circle at 14% 12%, rgba(255, 255, 255, 0.95), transparent 32%),
+    linear-gradient(145deg, #e1efe4 0%, #d2e7d8 100%);
+  box-shadow: 0 28px 70px rgba(23, 72, 46, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.hero-food-deck {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 462px;
+  outline: none;
+  perspective: 1200px;
+}
+
+.hero-food-deck:focus-visible {
+  border-radius: 27px;
+  outline: 3px solid rgba(15, 90, 59, 0.38);
+  outline-offset: 3px;
+}
+
+.hero-food-card-stack {
+  position: absolute;
+  z-index: 1;
+  inset: 0 0 56px;
+}
+
+.hero-food-card {
+  --card-x: 0px;
+  --card-y: 0px;
+  --card-rotation: 0deg;
+  --card-scale: 1;
+  position: absolute;
+  top: 3%;
+  left: 8%;
+  width: 84%;
+  height: 91%;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 27px;
+  background: #d7e8d9;
+  box-shadow: 0 15px 34px rgba(32, 74, 48, 0.16), 0 0 0 1px rgba(15, 90, 59, 0.05);
+  isolation: isolate;
+  cursor: pointer;
+  transform: translate3d(var(--card-x), var(--card-y), 0) rotate(var(--card-rotation)) scale(var(--card-scale));
+  transform-origin: 50% 80%;
+  transition:
+    transform 640ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 300ms ease,
+    border-color 300ms ease,
+    filter 300ms ease;
+}
+
+.hero-food-card:not(.hero-food-card-active) {
+  filter: saturate(0.86);
+}
+
+.hero-food-card-active {
+  cursor: grab;
+}
+
+.hero-food-card-active:active {
+  cursor: grabbing;
+}
+
+.hero-food-card:hover {
+  border-color: #fff;
+  box-shadow: 0 24px 44px rgba(23, 72, 46, 0.24), 0 0 0 4px rgba(255, 255, 255, 0.55);
+  filter: saturate(1.05);
+}
+
+.hero-food-card-active:hover {
+  transform: translate3d(var(--card-x), calc(var(--card-y) - 5px), 0) rotate(var(--card-rotation)) scale(1.015);
+}
+
+.hero-food-card:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+.hero-food-image {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 640ms cubic-bezier(0.22, 1, 0.36, 1), filter 300ms ease;
+}
+
+.hero-food-card:hover .hero-food-image {
+  filter: saturate(1.08) brightness(1.04);
+  transform: scale(1.065);
+}
+
+.hero-food-card-shade {
+  position: absolute;
+  z-index: 1;
+  inset: 32% 0 0;
+  background: linear-gradient(180deg, transparent, rgba(10, 52, 34, 0.54));
+  content: "";
+  pointer-events: none;
+}
+
+.hero-food-caption {
+  position: absolute;
+  z-index: 2;
+  right: 14px;
+  bottom: 15px;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: auto;
+  max-width: none;
+  padding: 10px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 17px;
+  color: #fff;
+  background: rgba(8, 61, 39, 0.68);
+  box-shadow: 0 6px 20px rgba(0, 35, 20, 0.12);
+  backdrop-filter: blur(12px);
+  pointer-events: none;
+}
+
+.hero-food-caption-dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #a7e0ac;
+  box-shadow: 0 0 0 4px rgba(167, 224, 172, 0.16);
+}
+
+.hero-food-caption-copy,
+.hero-food-caption-copy strong,
+.hero-food-caption-copy small {
+  display: block;
+  text-align: left;
+}
+
+.hero-food-caption-copy strong {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.05px;
+}
+
+.hero-food-caption-copy small {
+  margin-top: 3px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.hero-food-deck-footer {
+  position: absolute;
+  z-index: 20;
+  right: 1px;
+  bottom: 0;
+  left: 1px;
+  display: flex;
+  min-height: 43px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.hero-food-count {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  min-width: 44px;
+  color: #74917c;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.hero-food-count strong {
+  color: var(--green-dark);
+  font-size: 15px;
+}
+
+.hero-food-deck-hint {
+  color: #668271;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.hero-food-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.hero-food-controls button {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid rgba(15, 90, 59, 0.12);
+  border-radius: 12px;
+  color: var(--green-dark);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 4px 11px rgba(32, 74, 48, 0.06);
+  transition: transform 180ms ease, color 180ms ease, background 180ms ease, opacity 180ms ease;
+}
+
+.hero-food-controls button:not(:disabled):hover {
+  color: #fff;
+  background: var(--green);
+  transform: translateY(-2px);
+}
+
+.hero-food-controls button:disabled {
+  cursor: default;
+  opacity: 0.42;
+}
+
+@media (max-width: 1050px) {
+  .welcome-layout {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 800px) {
+  .welcome-screen {
+    padding: 18px;
+  }
+
+  .welcome-layout {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .welcome-copy {
+    padding: 10px 3px 0;
+  }
+
+  .welcome-eyebrow {
+    margin-top: 38px;
+  }
+
+  .welcome-copy h1 {
+    font-size: clamp(44px, 13vw, 67px);
+  }
+
+  .welcome-art {
+    min-height: 390px;
+    order: -1;
+  }
+
+  .hero-food-deck {
+    height: 352px;
+  }
+}
+
+@media (max-width: 520px) {
+
+  .welcome-description {
+    font-size: 15px;
+  }
+
+  .welcome-points > div {
+    padding: 0 8px;
+  }
+
+  .welcome-points small {
+    font-size: 10px;
+  }
+
+  .welcome-actions {
+    display: grid;
+  }
+
+  .welcome-actions .primary-button,
+.welcome-actions .secondary-button {
+    width: 100%;
+  }
+
+  .welcome-art {
+    min-height: 315px;
+    padding: 12px;
+  }
+
+  .hero-food-deck {
+    height: 289px;
+  }
+
+  .hero-food-card {
+    border-radius: 21px;
+  }
+
+  .hero-food-caption {
+    right: 9px;
+    bottom: 10px;
+    left: 9px;
+    gap: 7px;
+    padding: 8px 10px;
+    border-radius: 13px;
+  }
+
+  .hero-food-caption-copy strong {
+    font-size: 11px;
+  }
+
+  .hero-food-caption-copy small {
+    font-size: 9px;
+  }
+
+  .hero-food-deck-hint {
+    font-size: 9px;
+  }
+
+  .hero-food-controls {
+    gap: 4px;
+  }
+
+  .hero-food-controls button {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-food-card,
+.hero-food-image,
+.hero-food-controls button {
+    transition: none;
+  }
+
+  .hero-food-card-active:hover {
+    transform: translate3d(var(--card-x), var(--card-y), 0) rotate(var(--card-rotation)) scale(var(--card-scale));
+  }
+
+  .hero-food-image,
+.hero-food-card:hover .hero-food-image {
+    transform: none;
+  }
+}
