@@ -286,6 +286,7 @@ const baseFoodItems = [
   },
   {
     title: "KFC Shots w/ Rice",
+    image: "/food-images/31.png",
     category: "Chicken",
     restaurant: "KFC",
     description: "Bite-sized crispy chicken shots with gravy.",
@@ -297,6 +298,7 @@ const baseFoodItems = [
   },
   {
     title: "Ala King Zinger Steak",
+    image: "/food-images/32.png",
     category: "Rice Meals",
     restaurant: "KFC",
     description: "Crispy Zinger fillet topped with Ala King sauce.",
@@ -308,6 +310,7 @@ const baseFoodItems = [
   },
   {
     title: "Large Mashed Potato",
+    image: "/food-images/33.png",
     category: "Fries",
     restaurant: "KFC",
     description: "Creamy whipped potatoes drizzled with signature gravy.",
@@ -319,6 +322,7 @@ const baseFoodItems = [
   },
   {
     title: "KFC Fun Shots (Large)",
+    image: "/food-images/34.png",
     category: "Chicken",
     restaurant: "KFC",
     description: "Crunchy boneless chicken bites.",
@@ -330,6 +334,7 @@ const baseFoodItems = [
   },
   {
     title: "Mushroom Soup",
+    image: "/food-images/35.png",
     category: "Rice Meals",
     restaurant: "KFC",
     description: "Warm and creamy rich mushroom soup.",
@@ -341,6 +346,7 @@ const baseFoodItems = [
   },
   {
     title: "Siomai Chao Fan w/ Drink",
+    image: "/food-images/36.png",
     category: "Rice Meals",
     restaurant: "Chowking",
     description: "Wok-fried rice with steamed pork siomai & chili oil.",
@@ -352,6 +358,7 @@ const baseFoodItems = [
   },
   {
     title: "Pork Sweet & Sour Rice Meal",
+    image: "/food-images/37.png",
     category: "Rice Meals",
     restaurant: "Chowking",
     description: "Crispy pork in tangy sweet & sour sauce.",
@@ -363,6 +370,7 @@ const baseFoodItems = [
   },
   {
     title: "Chinese Style Fried Chicken",
+    image: "/food-images/38.png",
     category: "Chicken",
     restaurant: "Chowking",
     description: "Flavorful Chinese marinated fried chicken.",
@@ -374,6 +382,7 @@ const baseFoodItems = [
   },
   {
     title: "SuperSangkap Halo-Halo",
+    image: "/food-images/39.png",
     category: "Dessert",
     restaurant: "Chowking",
     description: "Shaved ice with Ube, leche flan & ice cream.",
@@ -385,6 +394,7 @@ const baseFoodItems = [
   },
   {
     title: "La Paz Batchoy Noodle Soup",
+    image: "/food-images/40.png",
     category: "Pasta",
     restaurant: "Chowking",
     description: "Rich noodle soup with pork, chicharon & egg.",
@@ -396,6 +406,7 @@ const baseFoodItems = [
   },
   {
     title: "Pork Siomai (4-pc)",
+    image: "/food-images/41.png",
     category: "Rice Meals",
     restaurant: "Chowking",
     description: "Steamed pork dumplings served with soy chili.",
@@ -407,6 +418,7 @@ const baseFoodItems = [
   },
   {
     title: "Bucho Sesame Balls (3-pc)",
+    image: "/food-images/42.png",
     category: "Dessert",
     restaurant: "Chowking",
     description: "Sweet sticky rice balls filled with lotus paste.",
@@ -418,6 +430,7 @@ const baseFoodItems = [
   },
   {
     title: "Lumpiang Shanghai Meal",
+    image: "/food-images/43.png",
     category: "Rice Meals",
     restaurant: "Chowking",
     description: "Crispy fried spring rolls served with Chao Fan.",
@@ -429,6 +442,7 @@ const baseFoodItems = [
   },
   {
     title: "Paa Large Chicken Inasal",
+    image: "/food-images/44.png",
     category: "Chicken",
     restaurant: "Mang Inasal",
     description: "Char-grilled marinated chicken leg w/ chicken oil.",
@@ -440,6 +454,7 @@ const baseFoodItems = [
   },
   {
     title: "Pecho Large Chicken Inasal",
+    image: "/food-images/45.png",
     category: "Chicken",
     restaurant: "Mang Inasal",
     description: "Char-grilled chicken breast & wing w/ rice.",
@@ -451,6 +466,7 @@ const baseFoodItems = [
   },
   {
     title: "2-pc Pork BBQ w/ Rice",
+    image: "/food-images/46.png",
     category: "Rice Meals",
     restaurant: "Mang Inasal",
     description: "Grilled sweet marinated pork skewers.",
@@ -462,6 +478,7 @@ const baseFoodItems = [
   },
   {
     title: "Pork Sisig w/ Rice",
+    image: "/food-images/47.png",
     category: "Rice Meals",
     restaurant: "Mang Inasal",
     description: "Sizzling minced pork with chicharon & egg.",
@@ -473,6 +490,7 @@ const baseFoodItems = [
   },
   {
     title: "Palabok w/ Drinks",
+    image: "/food-images/48.png",
     category: "Pasta",
     restaurant: "Mang Inasal",
     description: "Filipino rice noodles topped with savory sauce.",
@@ -484,6 +502,7 @@ const baseFoodItems = [
   },
   {
     title: "Extra Creamy Halo-Halo",
+    image: "/food-images/49.png",
     category: "Dessert",
     restaurant: "Mang Inasal",
     description: "Shaved ice with macapuno, leche flan & cream.",
@@ -495,6 +514,7 @@ const baseFoodItems = [
   },
   {
     title: "Grilled Liempo w/ Rice",
+    image: "/food-images/50.png",
     category: "Rice Meals",
     restaurant: "Mang Inasal",
     description: "Char-grilled marinated pork belly.",
@@ -506,6 +526,7 @@ const baseFoodItems = [
   },
   {
     title: "Crema de Leche",
+    image: "/food-images/51.png",
     category: "Dessert",
     restaurant: "Mang Inasal",
     description: "Smooth shaved ice topped with caramelized leche flan.",
@@ -517,6 +538,7 @@ const baseFoodItems = [
   },
   {
     title: 'Hawaiian Overload Pizza (9")',
+    image: "/food-images/52.png",
     category: "Pizza",
     restaurant: "Greenwich",
     description: "Pineapples, ham, bacon, mozzarella & cheddar.",
@@ -528,6 +550,7 @@ const baseFoodItems = [
   },
   {
     title: 'All-Meat Overload Pizza (9")',
+    image: "/food-images/53.png",
     category: "Pizza",
     restaurant: "Greenwich",
     description: "Loaded with pepperoni, sausage, beef & bacon.",
@@ -539,6 +562,7 @@ const baseFoodItems = [
   },
   {
     title: "Lasagna Supreme",
+    image: "/food-images/54.png",
     category: "Pasta",
     restaurant: "Greenwich",
     description: "Multi-layered pasta with rich meat sauce & cheese.",
@@ -550,6 +574,7 @@ const baseFoodItems = [
   },
   {
     title: "Crispy Fried Chicken (2-pc)",
+    image: "/food-images/55.png",
     category: "Chicken",
     restaurant: "Greenwich",
     description: "Crispy juicy fried chicken served with rice.",
@@ -561,6 +586,7 @@ const baseFoodItems = [
   },
   {
     title: "Creamy Carbonara",
+    image: "/food-images/56.png",
     category: "Pasta",
     restaurant: "Greenwich",
     description: "Pasta in rich white cream sauce with bacon bits.",
@@ -572,6 +598,7 @@ const baseFoodItems = [
   },
   {
     title: "Garlic Cheese Bread sticks",
+    image: "/food-images/57.png",
     category: "Fries",
     restaurant: "Greenwich",
     description: "Warm oven-baked breadsticks with melted garlic cheese.",
@@ -583,6 +610,7 @@ const baseFoodItems = [
   },
   {
     title: 'Ultimate Overload Pizza (12")',
+    image: "/food-images/58.png",
     category: "Pizza",
     restaurant: "Greenwich",
     description: "13 toppings loaded pizza for sharing.",
@@ -593,7 +621,8 @@ const baseFoodItems = [
     favorite: false,
   },
   {
-    title: "Pizza Roll Snacks",
+    title: "Pizza Wrap Snacks",
+    image: "/food-images/59.png",
     category: "Pizza",
     restaurant: "Greenwich",
     description: "Rolled pizza filled with ham & cheese.",
@@ -605,6 +634,7 @@ const baseFoodItems = [
   },
   {
     title: "Giga Fries (Cheese & BBQ)",
+    image: "/food-images/60.png",
     category: "Fries",
     restaurant: "Potato Corner",
     description: "Flavored fries shaken in Cheese & BBQ.",
@@ -616,6 +646,7 @@ const baseFoodItems = [
   },
   {
     title: "Tera Fries (Sour Cream)",
+    image: "/food-images/61.png",
     category: "Fries",
     restaurant: "Potato Corner",
     description: "Huge serving of zesty Sour Cream fries.",
@@ -627,6 +658,7 @@ const baseFoodItems = [
   },
   {
     title: "Mega Fries (Chili BBQ)",
+    image: "/food-images/62.png",
     category: "Fries",
     restaurant: "Potato Corner",
     description: "Crispy fries shaken in spicy Chili BBQ powder.",
@@ -638,6 +670,7 @@ const baseFoodItems = [
   },
   {
     title: "Jumbo Fries (Sweet Corn)",
+    image: "/food-images/63.png",
     category: "Fries",
     restaurant: "Potato Corner",
     description: "Sweet corn flavored golden crispy fries.",
@@ -649,6 +682,7 @@ const baseFoodItems = [
   },
   {
     title: "Loopys Curly Fries",
+    image: "/food-images/64.png",
     category: "Fries",
     restaurant: "Potato Corner",
     description: "Seasoned curly fries cooked to golden crunch.",
@@ -660,6 +694,7 @@ const baseFoodItems = [
   },
   {
     title: "Flavored Tater Tots",
+    image: "/food-images/65.png",
     category: "Fries",
     restaurant: "Potato Corner",
     description: "Bite-sized potato tots in your choice of flavor.",
@@ -671,6 +706,7 @@ const baseFoodItems = [
   },
   {
     title: "Soy Garlic Glazed Chicken (2-pc)",
+    image: "/food-images/66.png",
     category: "Chicken",
     restaurant: "BonChon",
     description: "Korean double-fried chicken with Soy Garlic glaze.",
@@ -682,6 +718,7 @@ const baseFoodItems = [
   },
   {
     title: "Spicy Korean Fried Chicken",
+    image: "/food-images/67.png",
     category: "Chicken",
     restaurant: "BonChon",
     description: "Crispy chicken tossed in fiery spicy Korean sauce.",
@@ -693,6 +730,7 @@ const baseFoodItems = [
   },
   {
     title: "Bibimbap Rice Bowl",
+    image: "/food-images/68.png",
     category: "Japanese & Asian",
     restaurant: "BonChon",
     description: "Korean rice bowl with egg, beef & veggies.",
@@ -704,6 +742,7 @@ const baseFoodItems = [
   },
   {
     title: "Korean Bullgogi Rice",
+    image: "/food-images/69.png",
     category: "Japanese & Asian",
     restaurant: "BonChon",
     description: "Tender marinated beef savory Korean style.",
@@ -715,6 +754,7 @@ const baseFoodItems = [
   },
   {
     title: "Mandu Korean Dumplings (4-pc)",
+    image: "/food-images/70.png",
     category: "Japanese & Asian",
     restaurant: "BonChon",
     description: "Crispy fried Korean pork dumplings.",
@@ -726,6 +766,7 @@ const baseFoodItems = [
   },
   {
     title: "Fish Poppers Rice Meal",
+    image: "/food-images/71.png",
     category: "Japanese & Asian",
     restaurant: "BonChon",
     description: "Crispy fish poppers with Honey Citrus dip.",
@@ -737,6 +778,7 @@ const baseFoodItems = [
   },
   {
     title: "K-Style Chicken Burger",
+    image: "/food-images/72.png",
     category: "Burger",
     restaurant: "BonChon",
     description: "Korean glazed chicken patty in brioche bun.",
@@ -748,6 +790,7 @@ const baseFoodItems = [
   },
   {
     title: "K-Bingsu Dessert",
+    image: "/food-images/73.png",
     category: "Dessert",
     restaurant: "BonChon",
     description: "Korean shaved ice w/ strawberry & condensed milk.",
@@ -759,6 +802,7 @@ const baseFoodItems = [
   },
   {
     title: "Whopper Burger Meal",
+    image: "/food-images/74.png",
     category: "Burger",
     restaurant: "Burger King",
     description: "Flame-grilled 100% beef patty w/ tomatoes & lettuce.",
@@ -770,6 +814,7 @@ const baseFoodItems = [
   },
   {
     title: "Four Cheese Whopper",
+    image: "/food-images/75.png",
     category: "Burger",
     restaurant: "Burger King",
     description: "Flame-grilled beef with 4 melted specialty cheeses.",
@@ -781,6 +826,7 @@ const baseFoodItems = [
   },
   {
     title: "X-tra Long Chicken Sandwich",
+    image: "/food-images/76.png",
     category: "Burger",
     restaurant: "Burger King",
     description: "Lightly breaded white chicken fillet in long bun.",
@@ -792,6 +838,7 @@ const baseFoodItems = [
   },
   {
     title: "Thick Cut Hash Bites",
+    image: "/food-images/77.png",
     category: "Fries",
     restaurant: "Burger King",
     description: "Golden crunchy bite-sized potato hash browns.",
@@ -803,6 +850,7 @@ const baseFoodItems = [
   },
   {
     title: "Onion Rings (Large)",
+    image: "/food-images/78.png",
     category: "Fries",
     restaurant: "Burger King",
     description: "Crispy fried batter coated onion rings.",
@@ -814,6 +862,7 @@ const baseFoodItems = [
   },
   {
     title: "Bacon Cheeseburger",
+    image: "/food-images/79.png",
     category: "Burger",
     restaurant: "Burger King",
     description: "Flame-grilled beef patty with smoked bacon strips.",
@@ -825,6 +874,7 @@ const baseFoodItems = [
   },
   {
     title: "Chicken Nuggets (10-pc)",
+    image: "/food-images/80.png",
     category: "Chicken",
     restaurant: "Burger King",
     description: "Crispy white meat chicken nuggets with honey mustard.",
@@ -836,6 +886,7 @@ const baseFoodItems = [
   },
   {
     title: "Hershey's Sundae Pie",
+    image: "/food-images/81.png",
     category: "Dessert",
     restaurant: "Burger King",
     description: "Chocolate crust with Hershey's chocolate filling.",
@@ -847,6 +898,7 @@ const baseFoodItems = [
   },
   {
     title: "Chicken Teriyaki Bento",
+    image: "/food-images/82.png",
     category: "Japanese & Asian",
     restaurant: "Tokyo Tokyo",
     description: "Grilled chicken glazed w/ sweet teriyaki sauce.",
@@ -858,6 +910,7 @@ const baseFoodItems = [
   },
   {
     title: "Pork Tonkatsu Bento",
+    image: "/food-images/83.png",
     category: "Japanese & Asian",
     restaurant: "Tokyo Tokyo",
     description: "Crispy deep-fried breaded pork cutlet.",
@@ -869,6 +922,7 @@ const baseFoodItems = [
   },
   {
     title: "Prawn Tempura Bento (3-pc)",
+    image: "/food-images/84.png",
     category: "Japanese & Asian",
     restaurant: "Tokyo Tokyo",
     description: "Golden crispy battered prawns w/ sauce.",
@@ -880,6 +934,7 @@ const baseFoodItems = [
   },
   {
     title: "Beef Gyudon Rice Bowl",
+    image: "/food-images/85.png",
     category: "Japanese & Asian",
     restaurant: "Tokyo Tokyo",
     description: "Tender beef & onions simmered in dashi sauce.",
@@ -891,6 +946,7 @@ const baseFoodItems = [
   },
   {
     title: "Chicken Karaage Bowl",
+    image: "/food-images/86.png",
     category: "Japanese & Asian",
     restaurant: "Tokyo Tokyo",
     description: "Japanese style crispy fried chicken bites.",
@@ -902,6 +958,7 @@ const baseFoodItems = [
   },
   {
     title: "California Maki Roll (8-pc)",
+    image: "/food-images/87.png",
     category: "Japanese & Asian",
     restaurant: "Tokyo Tokyo",
     description: "Crabsticks, mango & cucumber wrapped in nori.",
@@ -913,6 +970,7 @@ const baseFoodItems = [
   },
   {
     title: "Ramen Bowl (Shoyu)",
+    image: "/food-images/88.png",
     category: "Japanese & Asian",
     restaurant: "Tokyo Tokyo",
     description: "Hot savory soy broth with noodles & pork chashu.",
@@ -924,6 +982,7 @@ const baseFoodItems = [
   },
   {
     title: "Red Iced Tea (1 Liter)",
+    image: "/food-images/89.png",
     category: "Drinks",
     restaurant: "Tokyo Tokyo",
     description: "Signature refreshing citrus red iced tea.",
@@ -935,6 +994,7 @@ const baseFoodItems = [
   },
   {
     title: "Manager's Choice Pizza (Large)",
+    image: "/food-images/90.png",
     category: "Pizza",
     restaurant: "Shakey's",
     description: "Loaded with beef, ham, sausage & green pepper.",
@@ -946,6 +1006,7 @@ const baseFoodItems = [
   },
   {
     title: "Pepperoni Crusted Pizza (Medium)",
+    image: "/food-images/91.png",
     category: "Pizza",
     restaurant: "Shakey's",
     description: "Generous slices of savory pepperoni & cheese.",
@@ -957,6 +1018,7 @@ const baseFoodItems = [
   },
   {
     title: "Mojo Potatoes (Basket)",
+    image: "/food-images/92.png",
     category: "Fries",
     restaurant: "Shakey's",
     description: "Iconic deep-fried sliced potato discs w/ dip.",
@@ -968,6 +1030,7 @@ const baseFoodItems = [
   },
   {
     title: "Chicken 'N' Mojos Combo",
+    image: "/food-images/93.png",
     category: "Chicken",
     restaurant: "Shakey's",
     description: "3-pc fried chicken paired with Mojo potatoes.",
@@ -979,6 +1042,7 @@ const baseFoodItems = [
   },
   {
     title: "Skillet Spaghetti",
+    image: "/food-images/94.png",
     category: "Pasta",
     restaurant: "Shakey's",
     description: "Classic meat sauce pasta served hot.",
@@ -990,6 +1054,7 @@ const baseFoodItems = [
   },
   {
     title: "Garlic Cheese Bread",
+    image: "/food-images/95.png",
     category: "Pizza",
     restaurant: "Shakey's",
     description: "Toasted French bread with garlic butter & mozzarella.",
@@ -1001,6 +1066,7 @@ const baseFoodItems = [
   },
   {
     title: "Spinach & Glazed Bacon Pizza",
+    image: "/food-images/96.png",
     category: "Pizza",
     restaurant: "Shakey's",
     description: "Creamy spinach sauce with sweet bacon bits.",
@@ -1012,6 +1078,7 @@ const baseFoodItems = [
   },
   {
     title: "Carbonara Supreme",
+    image: "/food-images/97.png",
     category: "Pasta",
     restaurant: "Shakey's",
     description: "White cream sauce with bacon & parmesan cheese.",
@@ -1023,6 +1090,7 @@ const baseFoodItems = [
   },
   {
     title: "Iced Caramel Macchiato (Venti)",
+    image: "/food-images/98.png",
     category: "Drinks",
     restaurant: "Starbucks",
     description: "Espresso with vanilla syrup, milk & caramel drizzle.",
@@ -1034,6 +1102,7 @@ const baseFoodItems = [
   },
   {
     title: "Iced Matcha Green Tea Latte",
+    image: "/food-images/99.png",
     category: "Drinks",
     restaurant: "Starbucks",
     description: "Sweetened matcha green tea blended with milk.",
@@ -1045,6 +1114,7 @@ const baseFoodItems = [
   },
   {
     title: "Java Chip Frappuccino",
+    image: "/food-images/100.png",
     category: "Drinks",
     restaurant: "Starbucks",
     description: "Coffee blended with mocha sauce & chocolate chips.",
@@ -1056,6 +1126,7 @@ const baseFoodItems = [
   },
   {
     title: "Caffe Latte (Grande)",
+    image: "/food-images/101.png",
     category: "Drinks",
     restaurant: "Starbucks",
     description: "Rich dark espresso balanced with steamed milk.",
@@ -1067,6 +1138,7 @@ const baseFoodItems = [
   },
   {
     title: "Glazed Cinnamon Roll",
+    image: "/food-images/102.png",
     category: "Dessert",
     restaurant: "Starbucks",
     description: "Warm pastry topped with sweet cream glaze.",
@@ -1078,6 +1150,7 @@ const baseFoodItems = [
   },
   {
     title: "Chocolate Chip Cookie",
+    image: "/food-images/103.png",
     category: "Dessert",
     restaurant: "Starbucks",
     description: "Chewy buttery cookie packed with dark chocolate.",
@@ -1089,6 +1162,7 @@ const baseFoodItems = [
   },
   {
     title: "Ham & Cheese Croissant",
+    image: "/food-images/104.png",
     category: "Fries",
     restaurant: "Starbucks",
     description: "Flaky buttery croissant filled with ham & cheese.",
@@ -1100,6 +1174,7 @@ const baseFoodItems = [
   },
   {
     title: "Dark Mocha Frappuccino",
+    image: "/food-images/105.png",
     category: "Drinks",
     restaurant: "Starbucks",
     description: "Rich dark chocolate mocha blended ice beverage.",
@@ -1111,6 +1186,7 @@ const baseFoodItems = [
   },
   {
     title: "Panda Milk Tea (Large)",
+    image: "/food-images/106.png",
     category: "Drinks",
     restaurant: "CoCo Fresh Tea",
     description: "Classic milk tea with black pearls & white sago.",
@@ -1122,6 +1198,7 @@ const baseFoodItems = [
   },
   {
     title: "3 Brothers Milk Tea",
+    image: "/food-images/107.png",
     category: "Drinks",
     restaurant: "CoCo Fresh Tea",
     description: "Milk tea loaded with pearls, pudding & grass jelly.",
@@ -1133,6 +1210,7 @@ const baseFoodItems = [
   },
   {
     title: "Taro Milk Tea w/ Sago",
+    image: "/food-images/108.png",
     category: "Drinks",
     restaurant: "CoCo Fresh Tea",
     description: "Sweet creamy taro tea with chewy sago pearls.",
@@ -1144,6 +1222,7 @@ const baseFoodItems = [
   },
   {
     title: "Passion Fruit Tea w/ Boba",
+    image: "/food-images/109.png",
     category: "Drinks",
     restaurant: "CoCo Fresh Tea",
     description: "Tangy tropical fruit tea infused with passion fruit.",
@@ -1155,6 +1234,7 @@ const baseFoodItems = [
   },
   {
     title: "Chocolate Milk Tea w/ Pudding",
+    image: "/food-images/110.png",
     category: "Drinks",
     restaurant: "CoCo Fresh Tea",
     description: "Rich chocolate milk tea with smooth egg pudding.",
@@ -1166,6 +1246,7 @@ const baseFoodItems = [
   },
   {
     title: "Matcha Slush w/ Salty Cream",
+    image: "/food-images/111.png",
     category: "Drinks",
     restaurant: "CoCo Fresh Tea",
     description: "Blended matcha green tea topped with cheese foam.",
@@ -1177,6 +1258,7 @@ const baseFoodItems = [
   },
   {
     title: "Black Forest Cake Slice",
+    image: "/food-images/112.png",
     category: "Dessert",
     restaurant: "Goldilocks",
     description: "Chocolate sponge cake layered with cherries & cream.",
@@ -1188,6 +1270,7 @@ const baseFoodItems = [
   },
   {
     title: "Fresh Lumpia Ubod",
+    image: "/food-images/113.png",
     category: "Rice Meals",
     restaurant: "Goldilocks",
     description: "Vegetable crepe roll with sweet peanut garlic sauce.",
@@ -1199,6 +1282,7 @@ const baseFoodItems = [
   },
   {
     title: "Classic Dinuguan w/ Puto",
+    image: "/food-images/114.png",
     category: "Rice Meals",
     restaurant: "Goldilocks",
     description: "Savory stewed pork blood served with steamed puto.",
@@ -1210,6 +1294,7 @@ const baseFoodItems = [
   },
   {
     title: "Mango Dream Cake Slice",
+    image: "/food-images/115.png",
     category: "Dessert",
     restaurant: "Goldilocks",
     description: "Soft chiffon cake filled with fresh mango puree.",
@@ -1221,6 +1306,7 @@ const baseFoodItems = [
   },
   {
     title: "Polvoron Box (Classic)",
+    image: "/food-images/116.png",
     category: "Dessert",
     restaurant: "Goldilocks",
     description: "Traditional Filipino toasted flour & milk candies.",
@@ -1232,6 +1318,7 @@ const baseFoodItems = [
   },
   {
     title: "Pork BBQ Skewers (3-pc)",
+    image: "/food-images/117.png",
     category: "Rice Meals",
     restaurant: "Goldilocks",
     description: "Filipino style sweet soy marinated pork BBQ.",
@@ -1243,6 +1330,7 @@ const baseFoodItems = [
   },
   {
     title: "Bully Boy Burger (Triple)",
+    image: "/food-images/118.png",
     category: "Burger",
     restaurant: "Army Navy",
     description: "Triple quarter pounder 100% beef patties burger.",
@@ -1254,6 +1342,7 @@ const baseFoodItems = [
   },
   {
     title: "Classic Beef Burrito",
+    image: "/food-images/119.png",
     category: "Burger",
     restaurant: "Army Navy",
     description: "Flour tortilla rolled with seasoned beef & Spanish rice.",
@@ -1265,6 +1354,7 @@ const baseFoodItems = [
   },
   {
     title: "Freedom Fries (Seasoned)",
+    image: "/food-images/120.png",
     category: "Fries",
     restaurant: "Army Navy",
     description: "Crispy spiral thin cut spicy seasoned fries.",
@@ -1276,6 +1366,7 @@ const baseFoodItems = [
   },
   {
     title: "Steak Quesadilla",
+    image: "/food-images/121.png",
     category: "Burger",
     restaurant: "Army Navy",
     description: "Toasted tortilla filled with sautéed steak & cheese.",
@@ -1287,6 +1378,7 @@ const baseFoodItems = [
   },
   {
     title: "Soft Taco (Chicken)",
+    image: "/food-images/122.png",
     category: "Burger",
     restaurant: "Army Navy",
     description: "Two soft flour tacos filled with grilled chicken.",
@@ -1298,6 +1390,7 @@ const baseFoodItems = [
   },
   {
     title: "LiberTea Iced Tea (1 Liter)",
+    image: "/food-images/123.png",
     category: "Drinks",
     restaurant: "Army Navy",
     description: "Freshly brewed signature sweet citrus iced tea.",
@@ -1312,6 +1405,7 @@ const baseFoodItems = [
 const additionalFoodItems = [
   {
     title: "Yumburger",
+    image: "/food-images/124.png",
     category: "Burger",
     restaurant: "Jollibee",
     description: "Beef patty topped with Jollibee's signature dressing.",
@@ -1323,6 +1417,7 @@ const additionalFoodItems = [
   },
   {
     title: "Jolly Hotdog",
+    image: "/food-images/125.png",
     category: "Burger",
     restaurant: "Jollibee",
     description: "Juicy hotdog with cheese, dressing, and a soft bun.",
@@ -1334,6 +1429,7 @@ const additionalFoodItems = [
   },
   {
     title: "McSpaghetti",
+    image: "/food-images/126.png",
     category: "Pasta",
     restaurant: "McDonald's",
     description: "Filipino-style spaghetti with sweet tomato sauce.",
@@ -1345,6 +1441,7 @@ const additionalFoodItems = [
   },
   {
     title: "Quarter Pounder with Cheese",
+    image: "/food-images/127.png",
     category: "Burger",
     restaurant: "McDonald's",
     description: "Quarter-pound beef patty with cheese, pickles, and onions.",
@@ -1356,6 +1453,7 @@ const additionalFoodItems = [
   },
   {
     title: "Crispy Chicken Fillet Ala King",
+    image: "/food-images/128.png",
     category: "Rice Meals",
     restaurant: "McDonald's",
     description: "Crispy chicken fillet topped with creamy mushroom sauce.",
@@ -1367,6 +1465,7 @@ const additionalFoodItems = [
   },
   {
     title: "KFC Twister",
+    image: "/food-images/129.png",
     category: "Chicken",
     restaurant: "KFC",
     description: "Crispy chicken strips rolled with lettuce and dressing.",
@@ -1378,6 +1477,7 @@ const additionalFoodItems = [
   },
   {
     title: "Hot Shots",
+    image: "/food-images/130.png",
     category: "Chicken",
     restaurant: "KFC",
     description: "Bite-sized crispy chicken pieces with a savory dip.",
@@ -1389,6 +1489,7 @@ const additionalFoodItems = [
   },
   {
     title: "Beef Chao Fan",
+    image: "/food-images/131.png",
     category: "Rice Meals",
     restaurant: "Chowking",
     description: "Savory fried rice topped with beef and toasted garlic.",
@@ -1400,6 +1501,7 @@ const additionalFoodItems = [
   },
   {
     title: "Chicharap",
+    image: "/food-images/132.png",
     category: "Fries",
     restaurant: "Chowking",
     description: "Crispy prawn crackers served with sweet chili sauce.",
@@ -1411,6 +1513,7 @@ const additionalFoodItems = [
   },
   {
     title: "Chicken Inasal Paa with Rice",
+    image: "/food-images/133.png",
     category: "Rice Meals",
     restaurant: "Mang Inasal",
     description: "Grilled marinated chicken leg served with rice.",
@@ -1422,6 +1525,7 @@ const additionalFoodItems = [
   },
   {
     title: "Hawaiian Overload Pizza (12-inch)",
+    image: "/food-images/134.png",
     category: "Pizza",
     restaurant: "Greenwich",
     description: "Pizza topped with ham, bacon, pineapple, and cheese.",
@@ -1433,6 +1537,7 @@ const additionalFoodItems = [
   },
   {
     title: "Cheesy Beef Lasagna",
+    image: "/food-images/135.png",
     category: "Pasta",
     restaurant: "Greenwich",
     description: "Baked pasta layered with beef sauce and melted cheese.",
@@ -1444,6 +1549,7 @@ const additionalFoodItems = [
   },
   {
     title: "Tera Fries (Cheese)",
+    image: "/food-images/136.png",
     category: "Fries",
     restaurant: "Potato Corner",
     description: "A generous serving of fries tossed in cheese seasoning.",
@@ -1455,6 +1561,7 @@ const additionalFoodItems = [
   },
   {
     title: "Crunchy Garlic Chicken",
+    image: "/food-images/137.png",
     category: "Chicken",
     restaurant: "BonChon",
     description: "Crispy Korean-style chicken glazed with garlic sauce.",
@@ -1466,6 +1573,7 @@ const additionalFoodItems = [
   },
   {
     title: "BBQ Bacon King",
+    image: "/food-images/138.png",
     category: "Burger",
     restaurant: "Burger King",
     description: "Flame-grilled beef with bacon, cheese, and BBQ sauce.",
@@ -1477,6 +1585,7 @@ const additionalFoodItems = [
   },
   {
     title: "Pork Katsudon",
+    image: "/food-images/139.png",
     category: "Japanese & Asian",
     restaurant: "Tokyo Tokyo",
     description: "Breaded pork cutlet with egg and savory rice bowl sauce.",
@@ -1488,6 +1597,7 @@ const additionalFoodItems = [
   },
   {
     title: "Ebi Tempura (3-pc)",
+    image: "/food-images/140.png",
     category: "Japanese & Asian",
     restaurant: "Tokyo Tokyo",
     description: "Crispy battered prawns served with tempura sauce.",
@@ -1499,6 +1609,7 @@ const additionalFoodItems = [
   },
   {
     title: "Chicken and Cheese Pizza (Medium)",
+    image: "/food-images/141.png",
     category: "Pizza",
     restaurant: "Shakey's",
     description: "Chicken and melted cheese on a golden pizza crust.",
@@ -1510,6 +1621,7 @@ const additionalFoodItems = [
   },
   {
     title: "Caramel Frappuccino",
+    image: "/food-images/142.png",
     category: "Drinks",
     restaurant: "Starbucks",
     description: "Blended coffee with caramel, milk, and whipped cream.",
@@ -1521,6 +1633,7 @@ const additionalFoodItems = [
   },
   {
     title: "Blueberry Muffin",
+    image: "/food-images/143.png",
     category: "Dessert",
     restaurant: "Starbucks",
     description: "Soft baked muffin filled with sweet blueberries.",
@@ -1532,6 +1645,7 @@ const additionalFoodItems = [
   },
   {
     title: "Brown Sugar Pearl Milk Tea",
+    image: "/food-images/144.png",
     category: "Drinks",
     restaurant: "CoCo Fresh Tea",
     description: "Creamy milk tea with chewy pearls and brown sugar.",
@@ -1543,6 +1657,7 @@ const additionalFoodItems = [
   },
   {
     title: "Ube Cake Slice",
+    image: "/food-images/145.png",
     category: "Dessert",
     restaurant: "Goldilocks",
     description: "Soft ube-flavored cake layered with sweet frosting.",
@@ -1554,6 +1669,7 @@ const additionalFoodItems = [
   },
   {
     title: "Chicken Burrito",
+    image: "/food-images/146.png",
     category: "Rice Meals",
     restaurant: "Army Navy",
     description: "Seasoned chicken, rice, and vegetables wrapped in a tortilla.",
@@ -1565,6 +1681,7 @@ const additionalFoodItems = [
   },
   {
     title: "Tuna Pie",
+    image: "/food-images/147.png",
     category: "Dessert",
     restaurant: "Jollibee",
     description: "Crispy pastry filled with savory tuna.",
@@ -1576,6 +1693,7 @@ const additionalFoodItems = [
   },
   {
     title: "Mango Graham Cake Slice",
+    image: "/food-images/148.png",
     category: "Dessert",
     restaurant: "Goldilocks",
     description: "Creamy mango dessert layered with graham crumbs.",
