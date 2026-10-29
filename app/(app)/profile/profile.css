@@ -1,0 +1,233 @@
+/* Profile page and shortcut cards. */
+
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1.25fr);
+  align-items: stretch;
+  gap: 17px;
+}
+
+.profile-main-card,
+.profile-details-card {
+  border-radius: 21px;
+  background: #fff;
+  box-shadow: 0 7px 19px rgba(26, 65, 43, 0.06);
+}
+
+.profile-main-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 22px 20px;
+  text-align: center;
+}
+
+.profile-avatar {
+  display: grid;
+  width: 82px;
+  height: 82px;
+  place-items: center;
+  border: 8px solid var(--green-soft);
+  border-radius: 50%;
+  color: var(--green-dark);
+  background: #c8e2cf;
+  font-size: calc(32px * var(--font-scale, 1));
+  font-weight: 900;
+}
+
+.profile-main-card h2 {
+  margin: 13px 0 0;
+  font-size: calc(21px * var(--font-scale, 1));
+}
+
+.profile-main-card > p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: calc(13px * var(--font-scale, 1));
+}
+
+.profile-stats {
+  display: grid;
+  width: 100%;
+  margin-top: 28px;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+.profile-stats div + div {
+  border-left: 1px solid var(--line);
+}
+
+.profile-stats strong,
+.profile-stats span {
+  display: block;
+}
+
+.profile-stats strong {
+  color: var(--green-dark);
+  font-size: calc(21px * var(--font-scale, 1));
+}
+
+.profile-stats span {
+  margin-top: 4px;
+  color: var(--soft-muted);
+  font-size: calc(11px * var(--font-scale, 1));
+}
+
+.profile-details-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px 25px;
+}
+
+.profile-shortcuts {
+  margin-top: 29px;
+}
+
+.profile-shortcuts .section-heading {
+  margin-top: 0;
+}
+
+.profile-shortcuts-note {
+  color: var(--soft-muted);
+  font-size: calc(11px * var(--font-scale, 1));
+}
+
+.profile-shortcut-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.profile-shortcut {
+  display: grid;
+  min-height: 88px;
+  grid-template-columns: 39px minmax(0, 1fr) 17px;
+  align-items: center;
+  gap: 10px;
+  padding: 13px;
+  border: 1px solid rgba(15, 90, 59, 0.08);
+  border-radius: 16px;
+  color: var(--ink);
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(26, 65, 43, 0.045);
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.profile-shortcut:hover {
+  border-color: rgba(15, 90, 59, 0.2);
+  box-shadow: 0 10px 20px rgba(26, 65, 43, 0.09);
+  transform: translateY(-2px);
+}
+
+.profile-shortcut-icon {
+  display: grid;
+  width: 39px;
+  height: 39px;
+  place-items: center;
+  border-radius: 13px;
+  color: var(--green);
+  background: var(--green-soft);
+}
+
+.profile-shortcut-icon.shortcut-heart {
+  color: #c84b4b;
+  background: #fbe7e3;
+}
+
+.profile-shortcut-icon.shortcut-menu {
+  color: #a76b21;
+  background: #f8eed5;
+}
+
+.profile-shortcut > span:nth-child(2) {
+  min-width: 0;
+}
+
+.profile-shortcut strong,
+.profile-shortcut small {
+  display: block;
+}
+
+.profile-shortcut strong {
+  overflow: hidden;
+  font-size: calc(12px * var(--font-scale, 1));
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile-shortcut small {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: calc(10px * var(--font-scale, 1));
+  line-height: 1.35;
+}
+
+.profile-shortcut > .icon {
+  color: var(--soft-muted);
+}
+
+.detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 18px 0;
+}
+
+.detail-row + .detail-row {
+  border-top: 1px solid var(--line);
+}
+
+.detail-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--soft-muted);
+  font-size: calc(11px * var(--font-scale, 1));
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.detail-row span .icon {
+  color: var(--green);
+}
+
+.detail-row strong {
+  color: var(--ink);
+  font-size: calc(14px * var(--font-scale, 1));
+}
+
+.logout-button {
+  display: inline-flex;
+  min-height: 51px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 23px;
+  border-radius: 15px;
+  color: #fff;
+  background: var(--red);
+  font-weight: 900;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.logout-button:hover {
+  background: #b52d2d;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 800px) {
+
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-shortcut-grid {
+    grid-template-columns: 1fr;
+  }
+}
