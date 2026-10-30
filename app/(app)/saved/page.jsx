@@ -6,7 +6,7 @@ import SavedPageView from "./SavedPageView";
 import { foodItems } from "../../lib/food-data";
 
 export default function SavedPage() {
-  const { favoriteIds, toggleFavorite, addToCart } = useFoodie();
+  const { favoriteIds, toggleFavorite, openCustomization } = useFoodie();
   const items = useMemo(
     () => foodItems.filter((item) => favoriteIds.includes(item.id)),
     [favoriteIds],
@@ -17,7 +17,7 @@ export default function SavedPage() {
       items={items}
       favoriteIds={favoriteIds}
       onToggleFavorite={toggleFavorite}
-      onAddToCart={addToCart}
+      onAddToCart={openCustomization}
     />
   );
 }

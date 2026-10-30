@@ -3,10 +3,10 @@
 import { useMemo, useState } from "react";
 import { useFoodie } from "../../providers";
 import MenuPageView from "./MenuPageView";
-import { categories, foodItems, restaurants } from "../../lib/food-data";
+import { categories, foodItems, restaurantProfiles, restaurants } from "../../lib/food-data";
 
 export default function MenuPage() {
-  const { favoriteIds, toggleFavorite, addToCart } = useFoodie();
+  const { favoriteIds, toggleFavorite, openCustomization } = useFoodie();
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
   const [restaurant, setRestaurant] = useState("All");
@@ -50,7 +50,8 @@ export default function MenuPage() {
       items={items}
       favoriteIds={favoriteIds}
       onToggleFavorite={toggleFavorite}
-      onAddToCart={addToCart}
+      onAddToCart={openCustomization}
+      restaurantProfiles={restaurantProfiles}
     />
   );
 }

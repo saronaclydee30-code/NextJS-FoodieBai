@@ -1,0 +1,438 @@
+/* Restaurant discovery cards and the shared food customization sheet. */
+
+.restaurant-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  overflow-x: auto;
+  padding: 2px 1px 8px;
+  scrollbar-width: none;
+}
+
+.restaurant-card-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.restaurant-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(15, 90, 59, 0.08);
+  border-radius: 18px;
+  color: var(--ink);
+  background: var(--surface);
+  box-shadow: 0 7px 17px rgba(26, 65, 43, 0.06);
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.restaurant-card:hover {
+  box-shadow: 0 14px 26px rgba(26, 65, 43, 0.13);
+  transform: translateY(-3px);
+}
+
+.restaurant-card-cover {
+  position: relative;
+  height: 116px;
+  overflow: hidden;
+  background: var(--green-soft);
+}
+
+.restaurant-card-cover::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 36%, rgba(5, 34, 21, 0.52));
+  content: "";
+}
+
+.restaurant-card-cover img {
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.restaurant-card:hover .restaurant-card-cover img {
+  transform: scale(1.07);
+}
+
+.restaurant-open-badge {
+  position: absolute;
+  right: 9px;
+  bottom: 9px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 8px;
+  border-radius: 999px;
+  color: #eaffef;
+  background: rgba(13, 92, 56, 0.86);
+  font-size: calc(9px * var(--font-scale, 1));
+  font-weight: 900;
+}
+
+.restaurant-open-badge > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #9af0b5;
+}
+
+.restaurant-open-badge.restaurant-closed {
+  color: #fff2e4;
+  background: rgba(116, 67, 42, 0.9);
+}
+
+.restaurant-open-badge.restaurant-closed > span {
+  background: #ffc98f;
+}
+
+.restaurant-card-copy {
+  padding: 11px 12px 13px;
+}
+
+.restaurant-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7px;
+}
+
+.restaurant-card-heading h3 {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  font-size: calc(14px * var(--font-scale, 1));
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.restaurant-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  flex: 0 0 auto;
+  color: #9a6a1d;
+  font-size: calc(10px * var(--font-scale, 1));
+  font-weight: 900;
+}
+
+.restaurant-rating .icon {
+  color: #d69d2a;
+}
+
+.restaurant-card-copy > p {
+  margin: 5px 0 0;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: calc(10px * var(--font-scale, 1));
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.restaurant-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 9px;
+  margin-top: 9px;
+  color: var(--soft-muted);
+  font-size: calc(9px * var(--font-scale, 1));
+  font-weight: 800;
+}
+
+.restaurant-card-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.restaurant-card-meta .icon {
+  color: var(--green);
+}
+
+.customization-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(10, 30, 20, 0.48);
+  backdrop-filter: blur(4px);
+}
+
+.customization-modal {
+  display: flex;
+  width: min(100%, 620px);
+  max-height: min(760px, calc(100vh - 40px));
+  max-height: min(760px, calc(100dvh - 40px));
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(15, 90, 59, 0.1);
+  border-radius: 24px;
+  background: var(--surface);
+  box-shadow: 0 26px 90px rgba(5, 35, 20, 0.28);
+  animation: customization-in 220ms ease both;
+}
+
+@keyframes customization-in {
+  from { opacity: 0; transform: translateY(18px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+.customization-heading {
+  position: relative;
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  padding: 20px 52px 16px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.customization-art {
+  width: 76px;
+  height: 76px;
+  border-radius: 17px;
+}
+
+.customization-art .food-emoji {
+  font-size: calc(40px * var(--font-scale, 1));
+}
+
+.customization-heading h2 {
+  margin: 5px 0 0;
+  font-size: calc(21px * var(--font-scale, 1));
+  line-height: 1.15;
+}
+
+.customization-heading p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: calc(11px * var(--font-scale, 1));
+}
+
+.customization-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  width: 35px;
+  height: 35px;
+  place-items: center;
+  border-radius: 11px;
+  color: var(--muted);
+  background: var(--green-pale);
+}
+
+.customization-scroll-area {
+  overflow-y: auto;
+  padding: 19px 20px 4px;
+}
+
+.customization-group {
+  min-width: 0;
+  margin: 0 0 18px;
+  padding: 0;
+  border: 0;
+}
+
+.customization-group legend,
+.customization-field > span {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--ink);
+  font-size: calc(12px * var(--font-scale, 1));
+  font-weight: 900;
+}
+
+.customization-choice-grid,
+.customization-choice-list {
+  display: grid;
+  gap: 8px;
+}
+
+.customization-choice-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.customization-choice {
+  display: grid;
+  min-height: 48px;
+  grid-template-columns: 18px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 8px 10px;
+  color: var(--muted);
+  background: var(--surface);
+  cursor: pointer;
+  font-size: calc(11px * var(--font-scale, 1));
+  font-weight: 800;
+}
+
+.customization-choice.selected {
+  border-color: #8dbb98;
+  color: var(--green-dark);
+  background: var(--green-pale);
+}
+
+.customization-choice input {
+  accent-color: var(--green);
+}
+
+.customization-choice strong {
+  color: var(--green-dark);
+  font-size: calc(10px * var(--font-scale, 1));
+  white-space: nowrap;
+}
+
+.customization-two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 12px;
+}
+
+.customization-field {
+  display: block;
+  min-width: 0;
+}
+
+.customization-field > span small {
+  color: var(--soft-muted);
+  font-size: calc(10px * var(--font-scale, 1));
+  font-weight: 700;
+}
+
+.customization-field input,
+.customization-field select {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: 0 11px;
+  color: var(--ink);
+  background: var(--surface);
+  font: inherit;
+  font-size: calc(11px * var(--font-scale, 1));
+}
+
+.customization-field input:focus,
+.customization-field select:focus {
+  border-color: #8dbb98;
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(15, 90, 59, 0.1);
+}
+
+.customization-closed-note {
+  margin: -1px 0 17px;
+  border-radius: 11px;
+  padding: 10px 12px;
+  color: #8b552f;
+  background: #fff0e3;
+  font-size: calc(11px * var(--font-scale, 1));
+  line-height: 1.45;
+}
+
+.customization-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 20px 20px;
+  border-top: 1px solid var(--line);
+}
+
+.customization-quantity {
+  flex: 0 0 auto;
+}
+
+.customization-submit {
+  min-height: 47px;
+  flex: 1;
+  border-radius: 13px;
+  font-size: calc(12px * var(--font-scale, 1));
+}
+
+.customization-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
+}
+
+html[data-theme="dark"] .restaurant-card,
+html[data-theme="dark"] .customization-modal,
+html[data-theme="dark"] .customization-choice,
+html[data-theme="dark"] .customization-field input,
+html[data-theme="dark"] .customization-field select {
+  border-color: var(--line);
+  background: var(--surface);
+}
+
+html[data-theme="dark"] .customization-choice.selected {
+  background: var(--green-pale);
+}
+
+html[data-theme="dark"] .customization-closed-note {
+  color: #ffd2a7;
+  background: #493324;
+}
+
+@media (max-width: 1050px) {
+  .restaurant-card-grid {
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .restaurant-card-grid {
+    display: flex;
+  }
+
+  .restaurant-card {
+    width: 250px;
+    flex: 0 0 250px;
+  }
+}
+
+@media (max-width: 520px) {
+  .customization-backdrop {
+    align-items: end;
+    padding: 0;
+  }
+
+  .customization-modal {
+    width: 100%;
+    max-height: min(88vh, 760px);
+    max-height: min(88dvh, 760px);
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: 24px 24px 0 0;
+    animation-name: customization-sheet-in;
+  }
+
+  .customization-heading {
+    padding: 16px 48px 13px 16px;
+  }
+
+  .customization-scroll-area {
+    padding: 16px 16px 3px;
+  }
+
+  .customization-footer {
+    padding: 13px 16px calc(15px + env(safe-area-inset-bottom)) 16px;
+  }
+
+  @keyframes customization-sheet-in {
+    from { opacity: 0; transform: translateY(100%); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .customization-modal,
+  .restaurant-card,
+  .restaurant-card-cover img {
+    animation: none;
+    transition: none;
+  }
+}

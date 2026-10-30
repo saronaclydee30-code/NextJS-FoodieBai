@@ -15,6 +15,7 @@ export default function SettingsPage() {
     hydrated,
     updateDeliverySettings,
     showToast,
+    resetDemoData,
   } = useFoodie();
   const [draft, setDraft] = useState(null);
   const settingsDraft = draft || deliverySettings;
@@ -28,13 +29,24 @@ export default function SettingsPage() {
 
   const saveSettings = (event) => {
     event.preventDefault();
-    if (!settingsDraft.deliveryAddress.trim()) {
-      showToast("Add a delivery address before saving");
+    if (!settingsDraft.street?.trim() || !settingsDraft.barangay?.trim() || !settingsDraft.city?.trim()) {
+      showToast("Complete your street, barangay, and city before saving");
       return;
     }
 
     updateDeliverySettings(settingsDraft);
     showToast("Delivery settings saved");
+  };
+
+  const handleResetDemoData = () => {
+    const confirmed = window.confirm(
+      "Reset all FoodieBai demo data on this device? This will sign you out and remove your saved cart, orders, reviews, favorites, and preferences.",
+    );
+
+    if (!confirmed) return;
+
+    setDraft(null);
+    resetDemoData();
   };
 
   return (
@@ -72,20 +84,25 @@ export default function SettingsPage() {
             </div>
           </div>
 
-          <label className="settings-field">
-            <span>Delivery address</span>
-            <input
-              autoComplete="street-address"
-              maxLength={180}
-              onChange={(event) =>
-                updateField("deliveryAddress", event.target.value)
-              }
-              placeholder="House number, street, city"
-              required
-              value={settingsDraft.deliveryAddress}
-              disabled={!hydrated}
-            />
-          </label>
+          <div className="settings-address-grid">
+            <label className="settings-field">
+              <span>House / unit no.</span>
+              <input autoComplete="address-line1" maxLength={40} onChange={(event) => updateField("houseNumber", event.target.value)} placeholder="123" value={settingsDraft.houseNumber || ""} disabled={!hydrated} />
+            </label>
+            <label className="settings-field settings-address-wide">
+              <span>Street</span>
+              <input autoComplete="street-address" maxLength={100} onChange={(event) => updateField("street", event.target.value)} placeholder="Foodie Street" required value={settingsDraft.street || ""} disabled={!hydrated} />
+            </label>
+            <label className="settings-field">
+              <span>Barangay</span>
+              <input autoComplete="address-level3" maxLength={80} onChange={(event) => updateField("barangay", event.target.value)} placeholder="Poblacion" required value={settingsDraft.barangay || ""} disabled={!hydrated} />
+            </label>
+            <label className="settings-field settings-address-wide">
+              <span>City / province</span>
+              <input autoComplete="address-level2" maxLength={100} onChange={(event) => updateField("city", event.target.value)} placeholder="Makati, Metro Manila" required value={settingsDraft.city || ""} disabled={!hydrated} />
+            </label>
+          </div>
+          <div className="settings-address-preview"><AppIcon name="pin" size={15} /><span><small>Saved delivery address</small><strong>{[settingsDraft.houseNumber, settingsDraft.street, settingsDraft.barangay && `Brgy. ${settingsDraft.barangay.replace(/^brgy\.\s*/i, "")}`, settingsDraft.city].filter(Boolean).join(", ") || "Complete the fields above"}</strong></span></div>
 
           <label className="settings-field">
             <span>
@@ -209,6 +226,30 @@ export default function SettingsPage() {
               <span>Larger</span>
             </span>
           </label>
+        </section>
+
+        <section className="settings-card settings-reset-card" aria-labelledby="reset-demo-title">
+          <div className="settings-card-heading">
+            <span className="settings-card-icon settings-reset-icon">
+              <AppIcon name="refresh" size={20} />
+            </span>
+            <div>
+              <h2 id="reset-demo-title">Reset demo data</h2>
+              <p>Start the presentation with a clean app state.</p>
+            </div>
+          </div>
+          <p className="settings-reset-copy">
+            This clears the saved demo account, cart, orders, reviews,
+            favorites, address, and preferences from this device.
+          </p>
+          <button
+            className="secondary-button settings-reset-button"
+            type="button"
+            onClick={handleResetDemoData}
+            disabled={!hydrated}
+          >
+            Reset demo data <AppIcon name="refresh" size={17} />
+          </button>
         </section>
 
         <div className="settings-footer">

@@ -23,7 +23,9 @@ function isActiveRoute(pathname, id) {
 export default function AppNavigationShell({ children }) {
   const pathname = usePathname();
   const { user, cartCount } = useFoodie();
-  const activeUser = user?.username || "FoodieUser";
+  const visibleNavItems = user
+    ? navItems
+    : navItems.filter((item) => ["home", "menu", "cart"].includes(item.id));
 
   return (
     <main className="app-screen">
@@ -32,21 +34,31 @@ export default function AppNavigationShell({ children }) {
           <FoodieBaiBrand compact />
           <div className="app-topbar-right">
             <span className="delivery-status"><span className="online-dot" /> Delivering to Metro Manila</span>
-            <Link
-              className={`settings-link ${isActiveRoute(pathname, "settings") ? "settings-link-active" : ""}`}
-              href="/settings"
-              aria-label="Open settings"
-              aria-current={isActiveRoute(pathname, "settings") ? "page" : undefined}
-            >
-              <Image className="icon" src="/settings-icon.png" alt="" width={19} height={19} />
-              <span>Settings</span>
-            </Link>
-            <Link className="top-avatar" href="/profile" aria-label="Open profile">{activeUser.slice(0, 1).toUpperCase()}</Link>
+            {user ? (
+              <>
+                <Link
+                  className={`settings-link ${isActiveRoute(pathname, "settings") ? "settings-link-active" : ""}`}
+                  href="/settings"
+                  aria-label="Open settings"
+                  aria-current={isActiveRoute(pathname, "settings") ? "page" : undefined}
+                >
+                  <Image className="icon" src="/settings-icon.png" alt="" width={19} height={19} />
+                  <span>Settings</span>
+                </Link>
+                <Link className="top-avatar" href="/profile" aria-label="Open profile">
+                  {user.username?.slice(0, 1).toUpperCase() || "?"}
+                </Link>
+              </>
+            ) : (
+              <Link className="settings-link" href="/auth/signin">
+                Sign in
+              </Link>
+            )}
           </div>
         </header>
         <div className="app-content">{children}</div>
         <nav className="bottom-nav" aria-label="Primary navigation">
-          {navItems.map((item) => {
+          {visibleNavItems.map((item) => {
             const active = isActiveRoute(pathname, item.id);
             return (
               <Link

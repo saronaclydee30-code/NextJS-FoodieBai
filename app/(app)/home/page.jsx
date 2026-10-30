@@ -4,11 +4,11 @@ import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useFoodie } from "../../providers";
 import HomePageView from "./HomePageView";
-import { foodItems } from "../../lib/food-data";
+import { foodItems, restaurantProfiles } from "../../lib/food-data";
 
 export default function HomePage() {
   const router = useRouter();
-  const { user, favoriteIds, toggleFavorite, addToCart } = useFoodie();
+  const { user, favoriteIds, toggleFavorite, openCustomization } = useFoodie();
   const [search, setSearch] = useState("");
   const [restaurant, setRestaurant] = useState("All");
   const [category, setCategory] = useState("All");
@@ -37,7 +37,8 @@ export default function HomePage() {
       items={items}
       favoriteIds={favoriteIds}
       onToggleFavorite={toggleFavorite}
-      onAddToCart={addToCart}
+      onAddToCart={openCustomization}
+      restaurantProfiles={restaurantProfiles}
       onOpenMenu={() => router.push("/menu")}
     />
   );

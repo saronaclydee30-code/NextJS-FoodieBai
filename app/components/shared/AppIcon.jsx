@@ -88,6 +88,15 @@ export default function AppIcon({ name, size = 20, stroke = 1.9, filled = false 
         <path d="M12 7v5l3.3 2" {...common} />
       </>
     ),
+    phone: (
+      <path d="M6.4 3.8 9.2 3l2 4.7-2.1 1.7a13.7 13.7 0 0 0 5.5 5.5l1.7-2.1 4.7 2-.8 2.8a2.2 2.2 0 0 1-2.4 1.6C10.7 18.2 5.8 13.3 4.8 6.2a2.2 2.2 0 0 1 1.6-2.4Z" {...common} />
+    ),
+    message: (
+      <>
+        <path d="M5 5.5h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H11l-4.5 3v-3H5a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2Z" {...common} />
+        <path d="M7.5 10.5h9M7.5 13h5" {...common} />
+      </>
+    ),
     pin: (
       <>
         <path d="M19 10.2c0 5.2-7 10-7 10s-7-4.8-7-10a7 7 0 1 1 14 0Z" {...common} />
@@ -99,6 +108,15 @@ export default function AppIcon({ name, size = 20, stroke = 1.9, filled = false 
         <path d="M5.2 17.5a2.5 2.5 0 1 0 0 0M18.5 17.5a2.5 2.5 0 1 0 0 0" {...common} />
         <path d="M7.6 17.5h5.1l2-6.4h3.5l1.3 1.8M12.7 17.5l-2.8-6.4H7.1M10 11.1h3.5" {...common} />
         <path d="M16.8 7.1h2.3l.9 2.4M17.3 7.1V5.5" {...common} />
+      </>
+    ),
+    delivery: (
+      <>
+        <path d="M3.5 6.5h10.8v9.7H3.5z" {...common} />
+        <path d="M14.3 9h3.1l3.1 3.1v4.1h-6.2z" {...common} />
+        <path d="M14.3 12h4.1" {...common} />
+        <circle cx="7.2" cy="18" r="1.7" {...common} />
+        <circle cx="17.4" cy="18" r="1.7" {...common} />
       </>
     ),
     utensils: (
@@ -128,6 +146,12 @@ export default function AppIcon({ name, size = 20, stroke = 1.9, filled = false 
     ),
     logout: <path d="M14 4H5.5A1.5 1.5 0 0 0 4 5.5v13A1.5 1.5 0 0 0 5.5 20H14M16 8l4 4-4 4M20 12H9" {...common} />,
     check: <path d="m5 12 4.2 4.2L19.5 6" {...common} />,
+    refresh: (
+      <>
+        <path d="M20 11a8 8 0 1 0 1.1 4.8" {...common} />
+        <path d="M20 4v7h-7" {...common} />
+      </>
+    ),
   };
 
   return (

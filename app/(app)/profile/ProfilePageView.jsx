@@ -35,7 +35,7 @@ export default function ProfilePageView({
               <span>Saved</span>
             </div>
             <div>
-              <strong>Demo</strong>
+              <strong>0</strong>
               <span>Points</span>
             </div>
           </div>
@@ -57,7 +57,7 @@ export default function ProfilePageView({
             <span>
               <AppIcon name="cart" size={17} /> Payment Method
             </span>
-            <strong>Demo only — no payment processed</strong>
+            <strong>Choose at checkout</strong>
           </div>
         </div>
       </div>

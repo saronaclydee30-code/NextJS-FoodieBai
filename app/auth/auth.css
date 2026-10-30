@@ -176,13 +176,6 @@
   line-height: 1.5;
 }
 
-.auth-demo-note {
-  margin: 14px 0 -18px;
-  color: var(--soft-muted);
-  font-size: calc(11px * var(--font-scale, 1));
-  line-height: 1.45;
-}
-
 .auth-form {
   display: grid;
   gap: 16px;
@@ -217,6 +210,10 @@
   box-shadow: 0 0 0 4px rgba(15, 90, 59, 0.08);
 }
 
+.field-wrap:has(input[aria-invalid="true"]) {
+  border-color: #c84a4a;
+}
+
 .field-wrap input {
   width: 100%;
   min-width: 0;
@@ -237,6 +234,36 @@
 
 .password-toggle:hover {
   color: var(--green);
+}
+
+.field-error {
+  color: #b33131;
+  font-size: calc(11px * var(--font-scale, 1));
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.auth-forgot-link {
+  justify-self: end;
+  color: var(--green-dark);
+  font-size: calc(12px * var(--font-scale, 1));
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.auth-legal-note {
+  margin: 13px 0 0;
+  color: var(--muted);
+  font-size: calc(11px * var(--font-scale, 1));
+  line-height: 1.55;
+  text-align: center;
+}
+
+.auth-legal-note a {
+  color: var(--green-dark);
+  font-weight: 800;
+  text-underline-offset: 3px;
 }
 
 .form-error {

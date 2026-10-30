@@ -90,6 +90,41 @@
   font-size: calc(12px * var(--font-scale, 1));
 }
 
+.settings-address-grid {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.7fr) minmax(0, 1.3fr);
+  gap: 15px 12px;
+}
+
+.settings-address-wide {
+  min-width: 0;
+}
+
+.settings-address-preview {
+  display: flex;
+  align-items: start;
+  gap: 9px;
+  border-radius: 13px;
+  padding: 11px 12px;
+  color: var(--green-dark);
+  background: var(--green-pale);
+}
+
+.settings-address-preview > span {
+  display: grid;
+  gap: 3px;
+}
+
+.settings-address-preview small {
+  color: var(--muted);
+  font-size: calc(10px * var(--font-scale, 1));
+}
+
+.settings-address-preview strong {
+  font-size: calc(11px * var(--font-scale, 1));
+  line-height: 1.4;
+}
+
 .settings-field {
   display: grid;
   gap: 8px;
@@ -227,6 +262,40 @@
   gap: 16px;
 }
 
+.settings-reset-card {
+  gap: 16px;
+  border-color: rgba(190, 67, 55, 0.16);
+  background: linear-gradient(135deg, #fff 0%, #fff8f5 100%);
+}
+
+.settings-reset-icon {
+  color: #b33c31;
+  background: #fbe9e5;
+}
+
+.settings-reset-copy {
+  max-width: 680px;
+  margin: -5px 0 0;
+  color: var(--muted);
+  font-size: calc(12px * var(--font-scale, 1));
+  line-height: 1.55;
+}
+
+.settings-reset-button {
+  justify-self: start;
+  min-height: 46px;
+  color: #a3332b;
+  border-color: rgba(179, 60, 49, 0.25);
+  background: transparent;
+  font-size: calc(13px * var(--font-scale, 1));
+}
+
+.settings-reset-button:hover {
+  color: #8d2b25;
+  border-color: rgba(179, 60, 49, 0.4);
+  background: #fff0ec;
+}
+
 .settings-footer p {
   display: flex;
   align-items: center;
@@ -285,5 +354,10 @@
     justify-content: center;
     padding: 0 9px;
     font-size: 0;
+  }
+
+  .settings-address-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
 }

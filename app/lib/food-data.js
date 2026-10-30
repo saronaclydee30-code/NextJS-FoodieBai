@@ -19,6 +19,8 @@ export const restaurants = [
 
 export const categories = [
   "All",
+  "Filipino Favorites",
+  "Silog Meals",
   "Chicken",
   "Burger",
   "Pasta",
@@ -29,6 +31,203 @@ export const categories = [
   "Drinks",
   "Japanese & Asian",
 ];
+
+export function restaurantSlug(name) {
+  return String(name || "")
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+const restaurantDetails = {
+  Jollibee: {
+    cuisine: "Filipino fast food",
+    rating: 4.8,
+    deliveryTime: "25-35 min",
+    deliveryFee: 49,
+    coverImage: "/food-images/1.png",
+    address: "Jollibee Poblacion, Makati",
+    hours: "Open until 11:00 PM",
+    description: "Crispy Chickenjoy, sweet-style spaghetti, and Filipino comfort food favorites.",
+    reviews: [
+      { id: "jollibee-review-1", name: "Mia R.", rating: 5, comment: "Chickenjoy arrived hot and crispy!", tags: ["Food quality"], date: "2 days ago" },
+      { id: "jollibee-review-2", name: "Carlo D.", rating: 4, comment: "Quick delivery and a complete order.", tags: ["Delivery speed"], date: "1 week ago" },
+    ],
+  },
+  "McDonald's": {
+    cuisine: "Burgers and American fast food",
+    rating: 4.7,
+    deliveryTime: "20-30 min",
+    deliveryFee: 45,
+    coverImage: "/food-images/17.png",
+    address: "McDonald's Greenbelt, Makati",
+    hours: "Open 24 hours",
+    description: "Classic burgers, fries, chicken meals, and sweet treats for every craving.",
+  },
+  KFC: {
+    cuisine: "Fried chicken",
+    rating: 4.7,
+    deliveryTime: "30-40 min",
+    deliveryFee: 49,
+    coverImage: "/food-images/31.png",
+    address: "KFC Ayala Avenue, Makati",
+    hours: "Open until 10:00 PM",
+    description: "Finger lickin' good chicken buckets, rice meals, and sharing combos.",
+  },
+  Chowking: {
+    cuisine: "Chinese-Filipino",
+    rating: 4.6,
+    deliveryTime: "25-40 min",
+    deliveryFee: 39,
+    coverImage: "/food-images/45.png",
+    address: "Chowking Legazpi Village, Makati",
+    hours: "Open until 10:00 PM",
+    description: "Chinese-Filipino favorites, noodles, siopao, and hearty rice meals.",
+  },
+  "Mang Inasal": {
+    cuisine: "Filipino grilled meals",
+    rating: 4.8,
+    deliveryTime: "30-45 min",
+    deliveryFee: 39,
+    coverImage: "/food-images/57.png",
+    address: "Mang Inasal Jupiter Street, Makati",
+    hours: "Open until 10:00 PM",
+    description: "Unlimited rice, smoky chicken inasal, and classic Filipino grilled dishes.",
+    reviews: [
+      { id: "mang-review-1", name: "Jessa T.", rating: 5, comment: "The chicken inasal and rice were perfect together.", tags: ["Food quality"], date: "3 days ago" },
+    ],
+  },
+  Greenwich: {
+    cuisine: "Pizza and pasta",
+    rating: 4.6,
+    deliveryTime: "30-45 min",
+    deliveryFee: 49,
+    coverImage: "/food-images/69.png",
+    address: "Greenwich Chino Roces, Makati",
+    hours: "Open until 11:00 PM",
+    description: "Cheesy pizzas, baked pasta, and party-size favorites for sharing.",
+  },
+  "Potato Corner": {
+    cuisine: "Fries and snacks",
+    rating: 4.7,
+    deliveryTime: "20-30 min",
+    deliveryFee: 35,
+    coverImage: "/food-images/81.png",
+    address: "Potato Corner Glorietta, Makati",
+    hours: "Open until 9:00 PM",
+    description: "Freshly tossed flavored fries and fun snack-sized comfort food.",
+  },
+  BonChon: {
+    cuisine: "Korean fried chicken",
+    rating: 4.8,
+    deliveryTime: "30-40 min",
+    deliveryFee: 49,
+    coverImage: "/food-images/91.png",
+    address: "BonChon Rockwell, Makati",
+    hours: "Open until 10:00 PM",
+    description: "Crispy Korean-style chicken glazed with signature sauces.",
+  },
+  "Burger King": {
+    cuisine: "Burgers and fries",
+    rating: 4.6,
+    deliveryTime: "25-35 min",
+    deliveryFee: 45,
+    coverImage: "/food-images/101.png",
+    address: "Burger King Makati Avenue",
+    hours: "Open until 11:00 PM",
+    description: "Flame-grilled burgers, onion rings, and filling meal combos.",
+  },
+  "Tokyo Tokyo": {
+    cuisine: "Japanese comfort food",
+    rating: 4.7,
+    deliveryTime: "30-40 min",
+    deliveryFee: 45,
+    coverImage: "/food-images/111.png",
+    address: "Tokyo Tokyo Glorietta, Makati",
+    hours: "Open until 9:30 PM",
+    description: "Japanese rice bowls, tempura, and bento-style meals.",
+  },
+  "Shakey's": {
+    cuisine: "Pizza and family meals",
+    rating: 4.7,
+    deliveryTime: "35-50 min",
+    deliveryFee: 59,
+    coverImage: "/food-images/141.png",
+    address: "Shakey's Greenbelt, Makati",
+    hours: "Open until 11:00 PM",
+    description: "Thin-crust pizza, chicken, mojos, and group-sized bundles.",
+  },
+  Starbucks: {
+    cuisine: "Coffee and pastries",
+    rating: 4.8,
+    deliveryTime: "20-30 min",
+    deliveryFee: 49,
+    coverImage: "/food-images/142.png",
+    address: "Starbucks Legazpi Village, Makati",
+    hours: "Opens tomorrow at 7:00 AM",
+    description: "Coffeehouse favorites, blended drinks, and freshly baked treats.",
+    isOpen: false,
+  },
+  "CoCo Fresh Tea": {
+    cuisine: "Milk tea and refreshing drinks",
+    rating: 4.7,
+    deliveryTime: "20-30 min",
+    deliveryFee: 35,
+    coverImage: "/food-images/144.png",
+    address: "CoCo Fresh Tea Circuit Makati",
+    hours: "Open until 10:00 PM",
+    description: "Fresh milk tea, fruit tea, chewy pearls, and refreshing coolers.",
+  },
+  Goldilocks: {
+    cuisine: "Filipino bakery and desserts",
+    rating: 4.8,
+    deliveryTime: "25-35 min",
+    deliveryFee: 39,
+    coverImage: "/food-images/145.png",
+    address: "Goldilocks Chino Roces, Makati",
+    hours: "Open until 9:00 PM",
+    description: "Filipino cakes, pastries, merienda, and celebration treats.",
+  },
+  "Army Navy": {
+    cuisine: "Burgers and Mexican comfort food",
+    rating: 4.7,
+    deliveryTime: "30-40 min",
+    deliveryFee: 49,
+    coverImage: "/food-images/146.png",
+    address: "Army Navy Salcedo Village, Makati",
+    hours: "Open until 10:00 PM",
+    description: "Burgers, burritos, fries, and all-day comfort food.",
+  },
+};
+
+export const restaurantProfiles = restaurants
+  .filter((name) => name !== "All")
+  .map((name) => {
+    const details = restaurantDetails[name] || {};
+    return {
+      id: restaurantSlug(name),
+      name,
+      cuisine: details.cuisine || "Local comfort food",
+      rating: details.rating || 4.6,
+      deliveryTime: details.deliveryTime || "25-40 min",
+      deliveryFee: details.deliveryFee || 49,
+      coverImage: details.coverImage || "/food-images/1.png",
+      address: details.address || `${name} Metro Manila`,
+      hours: details.hours || "Open today",
+      description: details.description || `Delicious favorites from ${name}.`,
+      isOpen: details.isOpen !== false,
+      reviews: details.reviews || [],
+    };
+  });
+
+export function getRestaurantById(id) {
+  return restaurantProfiles.find((restaurant) => restaurant.id === id);
+}
+
+export function getRestaurantByName(name) {
+  return restaurantProfiles.find((restaurant) => restaurant.name === name);
+}
 
 const baseFoodItems = [
   {
@@ -1404,6 +1603,42 @@ const baseFoodItems = [
 
 const additionalFoodItems = [
   {
+    title: "Classic Tapsilog",
+    image: "/food-images/124.png",
+    category: "Silog Meals",
+    restaurant: "Mang Inasal",
+    description: "Sweet-savory beef tapa with garlic rice and a sunny-side egg.",
+    price: 189,
+    rating: 4.8,
+    emoji: "🍳",
+    tone: "honey",
+    favorite: true,
+  },
+  {
+    title: "Pinoy Sisig Rice Bowl",
+    image: "/food-images/125.png",
+    category: "Filipino Favorites",
+    restaurant: "Chowking",
+    description: "Sizzling-style sisig served over steaming Filipino garlic rice.",
+    price: 169,
+    rating: 4.7,
+    emoji: "🍚",
+    tone: "tomato",
+    favorite: false,
+  },
+  {
+    title: "Halo-Halo Fiesta",
+    image: "/food-images/145.png",
+    category: "Filipino Favorites",
+    restaurant: "Goldilocks",
+    description: "Shaved ice, sweet beans, fruit, leche flan, and ube ice cream.",
+    price: 129,
+    rating: 4.9,
+    emoji: "🍧",
+    tone: "lavender",
+    favorite: false,
+  },
+  {
     title: "Yumburger",
     image: "/food-images/124.png",
     category: "Burger",
@@ -1709,9 +1944,51 @@ export const foodItems = [...baseFoodItems, ...additionalFoodItems].map(
   (item, index) => ({
     ...item,
     id: `food-${index + 1}`,
+    restaurantId: item.restaurantId || restaurantSlug(item.restaurant),
     image: item.image ?? "",
   }),
 );
+
+export function getFoodCustomizationConfig(item) {
+  const isDrink = item?.category === "Drinks";
+  const isPizza = item?.category === "Pizza";
+  const isDessert = item?.category === "Dessert";
+
+  return {
+    sizes: isPizza
+      ? [
+          { id: "medium", label: "Medium", price: 0 },
+          { id: "large", label: "Large", price: 80 },
+        ]
+      : isDrink
+        ? [
+            { id: "regular", label: "Regular", price: 0 },
+            { id: "large", label: "Large", price: 25 },
+          ]
+        : [
+            { id: "regular", label: "Regular", price: 0 },
+            { id: "large", label: "Large", price: 35 },
+          ],
+    addOns: isDrink
+      ? [
+          { id: "pearls", label: "Extra pearls", price: 20 },
+          { id: "whipped-cream", label: "Whipped cream", price: 15 },
+          { id: "less-ice", label: "Less ice", price: 0 },
+        ]
+      : isDessert
+        ? [
+            { id: "sauce", label: "Extra sauce", price: 15 },
+            { id: "ice-cream", label: "Ice cream scoop", price: 35 },
+            { id: "crumbs", label: "Extra crumbs", price: 10 },
+          ]
+        : [
+            { id: "extra-rice", label: "Extra rice", price: 20 },
+            { id: "cheese", label: "Extra cheese", price: 25 },
+            { id: "sauce", label: "Extra sauce", price: 15 },
+          ],
+    spiceLevels: ["Not spicy", "Mild", "Medium", "Spicy"],
+  };
+}
 
 export const defaultFavorites = foodItems
   .filter((item) => item.favorite)

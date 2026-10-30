@@ -1,7 +1,13 @@
 import AppIcon from "../shared/AppIcon";
 import FoodItemImage from "./FoodItemImage";
+import Link from "next/link";
+import { getRestaurantById } from "../../lib/food-data";
+import { formatPHP } from "../../lib/format";
 
 export default function FoodMenuCard({ item, isFavorite, onToggleFavorite, onAddToCart }) {
+  const restaurant = getRestaurantById(item.restaurantId);
+  const isClosed = restaurant && !restaurant.isOpen;
+
   return (
     <article className="food-card">
       <div className={`food-art food-art-${item.tone}`}>
@@ -19,15 +25,17 @@ export default function FoodMenuCard({ item, isFavorite, onToggleFavorite, onAdd
       </div>
       <div className="food-card-content">
         <div className="food-tags">
-          <span className="restaurant-tag">{item.restaurant}</span>
+          <Link className="restaurant-tag restaurant-tag-link" href={`/restaurants/${item.restaurantId}`}>
+            {item.restaurant}
+          </Link>
           <span className="category-tag">{item.category}</span>
         </div>
         <h3>{item.title}</h3>
         <p>{item.description}</p>
         <div className="food-card-footer">
-          <strong>₱{item.price}</strong>
-          <button className="add-button" type="button" onClick={() => onAddToCart(item)} aria-label={`Add ${item.title} to cart`}>
-            <AppIcon name="plus" size={19} stroke={2.4} />
+          <strong>{formatPHP(item.price)}</strong>
+          <button className="add-button" type="button" disabled={isClosed} onClick={() => onAddToCart(item)} aria-label={isClosed ? `${item.restaurant} is closed` : `Customize ${item.title} before adding to cart`}>
+            {isClosed ? <span className="add-button-closed">Closed</span> : <AppIcon name="plus" size={19} stroke={2.4} />}
           </button>
         </div>
       </div>

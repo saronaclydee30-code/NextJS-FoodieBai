@@ -19,7 +19,8 @@ export default function WelcomePageView() {
             <span>right to your door.</span>
           </h1>
           <p className="welcome-description">
-            Find something delicious from local favorites and enjoy a fresh meal without the fuss.
+            Browse restaurants and menus first. Sign in or create an account
+            only when you&apos;re ready to check out.
           </p>
           <div className="welcome-points">
             <div>
@@ -36,8 +37,11 @@ export default function WelcomePageView() {
             </div>
           </div>
           <div className="welcome-actions">
+            <Link className="primary-button" href="/menu">
+              Browse restaurants <AppIcon name="arrowRight" size={18} />
+            </Link>
             <Link className="primary-button" href="/auth/signup">
-              Get started <AppIcon name="arrowRight" size={18} />
+              Create account
             </Link>
             <Link className="secondary-button" href="/auth/signin">
               I already have an account

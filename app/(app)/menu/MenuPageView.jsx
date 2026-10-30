@@ -2,6 +2,8 @@ import FoodMenuGrid from "../../components/food/FoodMenuGrid";
 import AppIcon from "../../components/shared/AppIcon";
 import FoodSearchField from "../../components/food/FoodSearchField";
 import FoodFilterChip from "../../components/food/FoodFilterChip";
+import RestaurantCardGrid from "../../components/food/RestaurantCardGrid";
+import PageSectionHeading from "../../components/food/PageSectionHeading";
 
 export default function MenuPageView({
   search,
@@ -18,6 +20,7 @@ export default function MenuPageView({
   favoriteIds,
   onToggleFavorite,
   onAddToCart,
+  restaurantProfiles,
 }) {
   return (
     <section className="subpage-view">
@@ -36,6 +39,8 @@ export default function MenuPageView({
         onChange={setSearch}
         placeholder="Search menu..."
       />
+      <PageSectionHeading title="Browse restaurants" subtitle="Open a restaurant to see its full menu" />
+      <RestaurantCardGrid restaurants={restaurantProfiles} />
       <div className="menu-browse-heading">
         <div>
           <h2>Find your kind of delicious</h2>

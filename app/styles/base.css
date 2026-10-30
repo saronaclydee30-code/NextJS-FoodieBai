@@ -423,6 +423,28 @@ html[data-theme="dark"] .settings-toggle input:checked + .settings-switch {
   background: #238253;
 }
 
+html[data-theme="dark"] .settings-reset-card {
+  border-color: #69413c;
+  background: linear-gradient(135deg, #282321 0%, #302622 100%);
+}
+
+html[data-theme="dark"] .settings-reset-icon {
+  color: #ffb1a7;
+  background: #4a2d29;
+}
+
+html[data-theme="dark"] .settings-reset-button {
+  color: #ffb1a7;
+  border-color: #805049;
+  background: #2a211f;
+}
+
+html[data-theme="dark"] .settings-reset-button:hover {
+  color: #ffd0ca;
+  border-color: #a96a61;
+  background: #3b2926;
+}
+
 html[data-theme="dark"] .brand {
   border-color: #405248;
   color: #d3efdc;

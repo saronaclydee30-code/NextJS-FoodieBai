@@ -10,13 +10,14 @@ import { foodItems } from "../../lib/food-data";
 export default function CartPage() {
   const router = useRouter();
   const {
+    user,
     cartItems,
     deliverySettings,
     favoriteIds,
     toggleFavorite,
     changeQuantity,
     placeOrder,
-    addToCart,
+    openCustomization,
   } = useFoodie();
   const [orderSuccess, setOrderSuccess] = useState(null);
   const suggestions = foodItems
@@ -33,20 +34,22 @@ export default function CartPage() {
     <>
       <CartPageView
         cartItems={cartItems}
+        user={user}
         deliverySettings={deliverySettings}
         suggestions={suggestions}
         favoriteIds={favoriteIds}
         onChangeQuantity={changeQuantity}
         onPlaceOrder={handlePlaceOrder}
         onOpenMenu={() => router.push("/menu")}
-        onAddToCart={addToCart}
+        onRequireAccount={() => router.push("/auth/signup?returnTo=%2Fcart")}
+        onAddToCart={openCustomization}
         onToggleFavorite={toggleFavorite}
       />
       <CartOrderSuccessModal
         order={orderSuccess}
         onTrack={() => {
           setOrderSuccess(null);
-          router.push("/orders");
+          router.push(`/orders/${orderSuccess.orderId}`);
         }}
         onContinue={() => {
           setOrderSuccess(null);

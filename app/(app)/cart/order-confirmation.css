@@ -115,6 +115,12 @@
   margin-top: 21px;
 }
 
+.success-options-preview {
+  color: var(--soft-muted);
+  font-size: calc(10px * var(--font-scale, 1));
+  line-height: 1.4;
+}
+
 .success-actions .primary-button,
 .success-actions .secondary-button {
   width: 100%;

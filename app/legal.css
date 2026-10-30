@@ -1,0 +1,151 @@
+.policy-screen {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 28px;
+  background:
+    radial-gradient(ellipse at 12% 12%, rgba(255, 255, 255, 0.96), transparent 29%),
+    radial-gradient(ellipse at 88% 82%, rgba(213, 236, 218, 0.9), transparent 32%),
+    linear-gradient(135deg, #f8faf6 0%, var(--canvas) 58%, #edf4ee 100%);
+}
+
+.policy-card {
+  display: grid;
+  width: min(100%, 720px);
+  gap: 16px;
+  padding: clamp(24px, 5vw, 48px);
+  border: 1px solid rgba(15, 90, 59, 0.1);
+  border-radius: 24px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.policy-card .brand {
+  justify-self: start;
+  margin-bottom: 12px;
+}
+
+.policy-card h1 {
+  margin: 0;
+  color: var(--ink);
+  font-size: calc(35px * var(--font-scale, 1));
+  letter-spacing: -1.5px;
+}
+
+.policy-card h2 {
+  margin: 8px 0 -8px;
+  color: var(--ink);
+  font-size: calc(17px * var(--font-scale, 1));
+}
+
+.policy-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: calc(14px * var(--font-scale, 1));
+  line-height: 1.65;
+}
+
+.legal-document {
+  gap: 22px;
+}
+
+.legal-document .brand {
+  margin-bottom: 0;
+}
+
+.legal-document > section {
+  display: grid;
+  gap: 12px;
+}
+
+.legal-document h2 {
+  margin: 0;
+  line-height: 1.35;
+}
+
+.legal-document p,
+.legal-document li {
+  font-size: calc(14px * var(--font-scale, 1));
+  line-height: 1.75;
+}
+
+.legal-document ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 24px;
+  color: var(--muted);
+}
+
+.policy-card > a:not(.brand):not(.primary-button) {
+  color: var(--green-dark);
+  font-weight: 900;
+  text-underline-offset: 3px;
+}
+
+.policy-card > a.primary-button {
+  justify-self: start;
+  margin-top: 8px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.fake-reset-card {
+  width: min(100%, 520px);
+}
+
+.fake-reset-note {
+  margin: -12px 0 0;
+  color: var(--green-dark);
+  font-weight: 800;
+}
+
+.fake-reset-form {
+  display: grid;
+  gap: 16px;
+}
+
+.fake-reset-hint {
+  margin: -8px 0 0;
+  color: var(--muted);
+  font-size: calc(12px * var(--font-scale, 1));
+  line-height: 1.5;
+}
+
+.fake-reset-form .primary-button {
+  width: 100%;
+}
+
+.fake-reset-code {
+  display: grid;
+  gap: 5px;
+  padding: 16px;
+  border: 1px solid rgba(15, 90, 59, 0.18);
+  border-radius: 15px;
+  color: var(--green-dark);
+  background: var(--green-pale);
+  line-height: 1.5;
+}
+
+.fake-reset-code strong {
+  font-size: calc(16px * var(--font-scale, 1));
+  letter-spacing: 0.4px;
+}
+
+.fake-reset-code span {
+  color: var(--muted);
+  font-size: calc(12px * var(--font-scale, 1));
+}
+
+.fake-reset-success {
+  display: grid;
+  gap: 10px;
+}
+
+.fake-reset-back {
+  margin-top: 0 !important;
+}
+
+html[data-theme="dark"] .policy-card {
+  border-color: var(--line);
+}
