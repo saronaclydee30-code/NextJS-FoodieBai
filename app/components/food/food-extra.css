@@ -49,6 +49,24 @@
   transition: transform 300ms ease;
 }
 
+.restaurant-card-logo-cover {
+  background: #f4faf6;
+}
+
+.restaurant-card-logo-cover::after {
+  display: none;
+}
+
+.restaurant-card-logo-cover img {
+  padding: 4px 8px;
+  object-fit: contain;
+  transform: scale(1.35);
+}
+
+.restaurant-card:hover .restaurant-card-logo-cover img {
+  transform: scale(1.42);
+}
+
 .restaurant-card:hover .restaurant-card-cover img {
   transform: scale(1.07);
 }

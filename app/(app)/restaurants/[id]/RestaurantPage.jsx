@@ -11,6 +11,24 @@ import { formatPHP } from "../../../lib/format";
 
 const tabs = ["Menu", "Info", "Reviews"];
 
+const restaurantLogoFiles = {
+  jollibee: "8.png",
+  "mcdonald-s": "11.png",
+  kfc: "9.png",
+  chowking: "4.png",
+  "mang-inasal": "10.png",
+  greenwich: "7.png",
+  "potato-corner": "12.png",
+  bonchon: "2.png",
+  "burger-king": "3.png",
+  "tokyo-tokyo": "15.png",
+  "shakey-s": "13.png",
+  starbucks: "14.png",
+  "coco-fresh-tea": "5.png",
+  goldilocks: "6.png",
+  "army-navy": "1.png",
+};
+
 function ReviewSummary({ rating, reviewCount }) {
   return (
     <span className="restaurant-review-summary">
@@ -125,8 +143,8 @@ export default function RestaurantPage({ restaurantId }) {
     <section className="subpage-view restaurant-detail-view">
       <Link className="restaurant-back-link" href="/menu"><AppIcon name="back" size={16} /> Back to restaurants</Link>
       <article className="restaurant-detail-card">
-        <div className="restaurant-detail-cover">
-          <Image src={restaurant.coverImage} alt="" fill priority sizes="(max-width: 800px) 100vw, 1240px" />
+        <div className="restaurant-detail-cover restaurant-detail-logo-cover">
+          <Image src={`/restaurant-logos/${restaurantLogoFiles[restaurant.id]}`} alt={`${restaurant.name} logo`} fill priority sizes="(max-width: 800px) 100vw, 1240px" />
           <div className="restaurant-detail-cover-overlay" />
           <span className={`restaurant-open-badge${restaurant.isOpen ? "" : " restaurant-closed"}`}><span /> {restaurant.isOpen ? "Open now" : "Closed"}</span>
         </div>

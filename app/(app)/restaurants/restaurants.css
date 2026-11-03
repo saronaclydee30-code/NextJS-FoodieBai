@@ -38,6 +38,19 @@
   object-fit: cover;
 }
 
+.restaurant-detail-logo-cover {
+  background: #f4faf6;
+}
+
+.restaurant-detail-logo-cover img {
+  padding: 28px 80px;
+  object-fit: contain;
+}
+
+.restaurant-detail-logo-cover .restaurant-detail-cover-overlay {
+  display: none;
+}
+
 .restaurant-detail-cover-overlay {
   position: absolute;
   inset: 0;

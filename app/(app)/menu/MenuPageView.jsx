@@ -40,7 +40,7 @@ export default function MenuPageView({
         placeholder="Search menu..."
       />
       <PageSectionHeading title="Browse restaurants" subtitle="Open a restaurant to see its full menu" />
-      <RestaurantCardGrid restaurants={restaurantProfiles} />
+      <RestaurantCardGrid restaurants={restaurantProfiles} showLogos />
       <div className="menu-browse-heading">
         <div>
           <h2>Find your kind of delicious</h2>

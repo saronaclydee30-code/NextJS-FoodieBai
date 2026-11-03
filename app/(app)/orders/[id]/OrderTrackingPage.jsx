@@ -43,7 +43,7 @@ function TrackingMap({ statusIndex }) {
 }
 
 export default function OrderTrackingPage({ orderId }) {
-  const { orders, showToast, submitReview } = useFoodie();
+  const { orders, submitReview } = useFoodie();
   const [now, setNow] = useState(0);
   const order = orders.find((currentOrder) => currentOrder.orderId === orderId);
   const restaurant = order ? getRestaurantById(order.restaurantId) : null;
@@ -133,7 +133,7 @@ export default function OrderTrackingPage({ orderId }) {
           <section className="tracking-card rider-card">
             <div className="rider-avatar">{order.rider?.name?.slice(0, 1) || "P"}</div>
             <div className="rider-copy"><span className="section-eyebrow">YOUR RIDER</span><h2>{order.rider?.name || "Paolo Santos"}</h2><p><AppIcon name="star" size={13} /> {order.rider?.rating || "4.9"} · FoodieBai delivery partner</p></div>
-            <div className="rider-actions"><button type="button" onClick={() => showToast("Call started.")}><AppIcon name="phone" size={17} /> Call</button><button type="button" onClick={() => showToast("Chat opened.")}><AppIcon name="message" size={17} /> Chat</button></div>
+            <div className="rider-actions"><button type="button"><AppIcon name="phone" size={17} /> Call</button><button type="button"><AppIcon name="message" size={17} /> Chat</button></div>
           </section>
           <section className="tracking-card tracking-address-card"><span className="tracking-address-icon"><AppIcon name="pin" size={20} /></span><div><span className="section-eyebrow">DELIVERING TO</span><strong>{order.deliveryAddress}</strong>{order.phoneNumber && <small>{order.phoneNumber}</small>}{order.contactlessDelivery && <small>Contactless delivery</small>}</div></section>
           <section className="tracking-card tracking-payment-card"><span className="section-eyebrow">PAYMENT</span><strong>{order.paymentMethod}</strong><small>Payment method selected at checkout.</small></section>
